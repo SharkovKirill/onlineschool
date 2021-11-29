@@ -19,34 +19,103 @@ package nsu_group.ui;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicLong;
+import java.sql.*;
+
 
 /**
  * @author Dave Syer
  */
 public class InMemoryLessonRespository implements LessonRepository {
 
+	private final static String url = "jdbc:mysql://127.0.0.1:3306/onlineschool";
+	private final static String user = "root";
+
 	private static AtomicLong counter = new AtomicLong();
 
-	private final ConcurrentMap<Long, Lesson> lessons = new ConcurrentHashMap<Long, Lesson>();
+	private final ConcurrentMap<Integer, Lesson> lessons = new ConcurrentHashMap<Integer, Lesson>();
 
 	@Override
 	public Iterable<Lesson> findAll() {
-		return this.lessons.values();
+
+		try {
+			Connection connection = DriverManager.getConnection(url, user, "12124576");
+			Statement statement = connection.createStatement();
+
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM Lessons");
+			resultSet.next();
+			while (resultSet.next()){
+				int id = resultSet.getInt("id");
+				Lesson lesson = new Lesson();
+				lesson.setName(resultSet.getString("name"));
+				lesson.setDescription(resultSet.getString("description"));
+				lesson.setVideo(resultSet.getString("video"));
+				this.lessons.put(id, lesson);
+
+			}
+			connection.close();
+			statement.close();
+			return this.lessons.values();
+	} catch (SQLException throwables) {
+			throwables.printStackTrace();
+			return this.lessons.values();
+		}
+//		return this.lessons.values();
 	}
+
 
 	@Override
 	public Lesson save(Lesson lesson) {
-		Long id = lesson.getId();
-		if (id == null) {
-			id = counter.incrementAndGet();
-			lesson.setId(id);
+//		Long id = lesson.getId();
+//		if (id == null) {
+//			id = counter.incrementAndGet();
+//			lesson.setId(id);
+//		}
+//		this.lessons.put(id, lesson);
+//		return lesson;
+		try {
+			Connection connection = DriverManager.getConnection(url, user, "12124576");
+			Statement statement = connection.createStatement();
+			statement.executeUpdate("INSERT  Lessons(`name`, `description`, `video`) " +
+					"VALUES ('" + lesson.getName() + ",'" + lesson.getDescription()+ "', '" + lesson.getVideo() + "')");
+			connection.close();
+			statement.close();
+			return lesson;
+
+
+		} catch (SQLException throwables) {
+			throwables.printStackTrace();
+			return lesson;
 		}
-		this.lessons.put(id, lesson);
-		return lesson;
 	}
 
 	@Override
-	public Lesson findLesson(Long id) {
-		return this.lessons.get(id);
-	}
-}
+	public Lesson findLesson(int id) {
+		try {
+			Connection connection = DriverManager.getConnection(url, user, "12124576");
+			Statement statement = connection.createStatement();
+
+			String query = "SELECT name, description, video value FROM `lessons` WHERE id = '"+id+"';";
+			ResultSet rs = statement.executeQuery(query);
+			rs.next();
+
+			Lesson lesson = new Lesson();
+			lesson.setId(id);
+			lesson.setName(rs.getString("name"));
+			lesson.setDescription(rs.getString("description"));
+			lesson.setVideo(rs.getString("video"));
+			connection.close();
+			statement.close();
+			return lesson;
+
+		} catch (SQLException throwables) {
+			throwables.printStackTrace();
+			Lesson lesson = new Lesson();
+			return lesson;
+
+//		return this.lessons.get(id);
+//	}finally {
+////			return lessons
+//		}
+
+		}
+}}

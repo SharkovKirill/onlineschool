@@ -38,7 +38,7 @@ public class SampleWebUiApplication {
 		return new Converter<String, Lesson>() {
 			@Override
 			public Lesson convert(String id) {
-				return lessonRepository().findLesson(Long.valueOf(id));
+				return lessonRepository().findLesson(Integer.valueOf(id));
 			}
 		};
 	}

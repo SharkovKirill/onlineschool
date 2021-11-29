@@ -17,7 +17,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 public class Lesson {
 
-    private Long id;
+    private int id;
 
     @NotEmpty(message = "Message is required.")
     private String name;
@@ -28,11 +28,11 @@ public class Lesson {
     @NotEmpty(message = "Video is required.")
     private String video;
 
-    public Long getId() {
+    public int getId() {
         return this.id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -59,4 +59,12 @@ public class Lesson {
     public void setVideo(String video) {
         this.video = video;
     }
+
+    public Lesson(){
+        this.id = 0;
+        this.name = "";
+        this.description = "";
+        this.video = "";
+    }
 }
+

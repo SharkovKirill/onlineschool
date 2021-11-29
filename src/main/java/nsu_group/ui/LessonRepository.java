@@ -19,6 +19,6 @@ public interface LessonRepository {
 
 	Lesson save(Lesson lesson);
 
-	Lesson findLesson(Long id);
+	Lesson findLesson(int id);
 
 }
