@@ -8,11 +8,12 @@
     <h1 layout:fragment="header">Lessons : Create</h1>
     <div layout:fragment="content"
         class="container">
-      <div class="alert alert-success"
-          th:if="${globalLesson}"
-          th:text="${globalLesson}">
-        Some Success lesson
-      </div>
+<!--      <div class="alert alert-success"-->
+<!--          th:if="${globalLesson}"-->
+<!--          th:text="${globalLesson}">-->
+
+<!--      </div>-->
+      Some Success lesson
       <div class="pull-right">
         <a th:href="@{/}" href="list.html">
           Lessons
@@ -27,12 +28,12 @@
           A short name...
         </dd>
         <dt>Description</dt>
-        <dd id="text"
+        <dd id="description"
             th:text="${lesson.description}">
           A detailed lesson that is longer than the name.
         </dd>
         <dt>Video</dt>
-        <dd id="text"
+        <dd id="video"
             th:text="${lesson.video}">
           A detailed lesson that is longer than the name.
         </dd>

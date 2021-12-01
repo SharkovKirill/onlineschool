@@ -26,18 +26,29 @@
               <!--No lessons-->
             <!--</td>-->
           <!--</tr>-->
-          <tr th:if="${lessons.empty}">
-            <td colspan="3">
-              No lessons
-            </td>
-          </tr>
+<!--          <tr th:if="${lessons.empty}">-->
+<!--            <td colspan="3">-->
+<!--              No lessons-->
+<!--            </td>-->
+<!--          </tr>-->
           <tr th:each="lesson : ${lessons}">
             <td th:text="${lesson.id}">1</td>
             <td>
               <a href="view.html"
                   th:href="@{'/' + ${lesson.id}}"
-                  th:text="${lesson.summary}">
-                The summary
+                  th:text="${lesson.name}">
+                Имя
+              </a>
+            </td>
+              <td><a href="view.html"
+                  th:href="@{'/' + ${lesson.id}}"
+                  th:text="${lesson.description}">
+                описание
+              </a></td>
+              <td><a href="view.html"
+                  th:href="@{'/' + ${lesson.id}}"
+                  th:text="${lesson.video}">
+                видео
               </a>
             </td>
           </tr>

@@ -16,9 +16,10 @@
 
 package nsu_group.ui;
 
+import java.util.Formatter;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.atomic.AtomicLong;
+//import java.util.concurrent.atomic.AtomicLong;
 import java.sql.*;
 
 
@@ -30,7 +31,7 @@ public class InMemoryLessonRespository implements LessonRepository {
 	private final static String url = "jdbc:mysql://127.0.0.1:3306/onlineschool";
 	private final static String user = "root";
 
-	private static AtomicLong counter = new AtomicLong();
+//	private static AtomicLong counter = new AtomicLong();
 
 	private final ConcurrentMap<Integer, Lesson> lessons = new ConcurrentHashMap<Integer, Lesson>();
 
@@ -42,15 +43,15 @@ public class InMemoryLessonRespository implements LessonRepository {
 			Statement statement = connection.createStatement();
 
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM Lessons");
-			resultSet.next();
+//			resultSet.next();
 			while (resultSet.next()){
 				int id = resultSet.getInt("id");
 				Lesson lesson = new Lesson();
+				lesson.setId(id);
 				lesson.setName(resultSet.getString("name"));
 				lesson.setDescription(resultSet.getString("description"));
 				lesson.setVideo(resultSet.getString("video"));
 				this.lessons.put(id, lesson);
-
 			}
 			connection.close();
 			statement.close();
@@ -65,22 +66,23 @@ public class InMemoryLessonRespository implements LessonRepository {
 
 	@Override
 	public Lesson save(Lesson lesson) {
-//		Long id = lesson.getId();
-//		if (id == null) {
-//			id = counter.incrementAndGet();
-//			lesson.setId(id);
-//		}
-//		this.lessons.put(id, lesson);
-//		return lesson;
 		try {
 			Connection connection = DriverManager.getConnection(url, user, "12124576");
 			Statement statement = connection.createStatement();
-			statement.executeUpdate("INSERT  Lessons(`name`, `description`, `video`) " +
-					"VALUES ('" + lesson.getName() + ",'" + lesson.getDescription()+ "', '" + lesson.getVideo() + "')");
+
+			Formatter s = new Formatter();
+			s.format("SELECT * FROM Lessons WHERE id= (select max(id) from Lessons);");
+			ResultSet resultSet = statement.executeQuery(String.valueOf(s));
+			resultSet.next();
+			int id = resultSet.getInt("id") + 1;
+
+			Formatter sq = new Formatter();
+			sq.format("INSERT INTO `onlineschool`.`lessons` (`id`, `name`, `description`, `video`) VALUES ('%s', '%s', '%s', '%s');",
+					id, lesson.getName(), lesson.getDescription(), lesson.getVideo());
+			statement.executeUpdate(String.valueOf(sq));
 			connection.close();
 			statement.close();
 			return lesson;
-
 
 		} catch (SQLException throwables) {
 			throwables.printStackTrace();

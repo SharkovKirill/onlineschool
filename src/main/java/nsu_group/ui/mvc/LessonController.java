@@ -61,8 +61,11 @@ public class LessonController {
 			return new ModelAndView("lessons/form", "formErrors", result.getAllErrors());
 		}
 		lesson = this.lessonRepository.save(lesson);
-		redirect.addFlashAttribute("globalLesson", "Successfully created a new lesson");
-		return new ModelAndView("redirect:/{lesson.id}", "lesson.id", lesson.getId());
+		Iterable<Lesson> lessons = this.lessonRepository.findAll();
+		return new ModelAndView("lessons/list", "lessons", lessons);
+//		System.out.println(lesson.getVideo()+"                  jwkef");
+//		redirect.addFlashAttribute("globalLesson", "Successfully created a new lesson");
+//		return new ModelAndView("redirect:/{lesson.id}", "lesson.id", lesson.getId());
 	}
 
 	@RequestMapping("foo")
