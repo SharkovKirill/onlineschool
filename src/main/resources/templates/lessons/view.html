@@ -3,41 +3,51 @@
   layout:decorator="layout">
   <head>
     <title>Lessons : View</title>
+    <link rel="stylesheet"
+          th:href="@{/css/style.css}"
+          href="../../css/style.css"/>
   </head>
   <body>
     <h1 layout:fragment="header">Lessons : Create</h1>
     <div layout:fragment="content"
         class="container">
-<!--      <div class="alert alert-success"-->
-<!--          th:if="${globalLesson}"-->
-<!--          th:text="${globalLesson}">-->
-
-<!--      </div>-->
-      Some Success lesson
+      <div class="alert alert-success"
+          th:if="${globalLesson}"
+          th:text="${globalLesson}">
+        Some Success lesson
+      </div>
       <div class="pull-right">
         <a th:href="@{/}" href="list.html">
           Lessons
         </a>
       </div>
       <dl>
-        <dt>ID</dt>
-        <dd id="id" th:text="${lesson.id}">123</dd>
-        <dt>Name</dt>
-        <dd id="name"
-            th:text="${lesson.name}">
-          A short name...
-        </dd>
-        <dt>Description</dt>
-        <dd id="description"
-            th:text="${lesson.description}">
-          A detailed lesson that is longer than the name.
-        </dd>
-        <dt>Video</dt>
-        <dd id="video"
-            th:text="${lesson.video}">
-          A detailed lesson that is longer than the name.
-        </dd>
+        <table class="table">
+          <thead>
+            <tr>
+            <dt>ID</dt>
+            <dd id="id" th:text="${lesson.id}">123</dd>
+            <dt>Name</dt>
+            <dd id="name"
+
+                th:text="${lesson.name}">
+              A short name...
+            </dd>
+            <dt>Description</dt>
+            <dd id="text"
+                th:text="${lesson.description}">
+              A detailed lesson that is longer than the name.
+            </dd>
+            <dt>Video</dt>
+            <dd id="text"
+                th:text="${lesson.video}">
+              A detailed lesson that is longer than the name.
+            </dd>
+            </tr>
+          </thead>
+        </table>
       </dl>
     </div>
   </body>
+
 </html>
