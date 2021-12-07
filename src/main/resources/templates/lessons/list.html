@@ -7,11 +7,11 @@
 </head>
 <body>
 <h1 layout:fragment="header">Lessons : View all</h1>
-<div layout:fragment="content" class="container-md">
+<div layout:fragment="content" class="container-fluid">
   <div class="pull-right">
     <a href="form.html" th:href="@{/(form)}">Create Lesson</a>
   </div>
-  <table class="table table-hover table-dark">
+  <table class="table table-bordered table-striped">
     <thead>
     <tr>
       <td>ID</td>
@@ -26,29 +26,19 @@
     <!--No lessons-->
     <!--</td>-->
     <!--</tr>-->
-    <!--          <tr th:if="${lessons.empty}">-->
-    <!--            <td colspan="3">-->
-    <!--              No lessons-->
-    <!--            </td>-->
-    <!--          </tr>-->
+    <tr th:if="${lessons.empty}">
+      <td colspan="3">
+        No lessons
+      </td>
+    </tr>
     <tr th:each="lesson : ${lessons}">
       <td th:text="${lesson.id}">1</td>
       <td>
         <a href="view.html"
            th:href="@{'/' + ${lesson.id}}"
-           th:text="${lesson.name}">
-          Имя
+           th:text="${lesson.summary}">
+          The summary
         </a>
-      </td>
-      <td><a href="view.html"
-             th:href="@{'/' + ${lesson.id}}"
-             th:text="${lesson.description}">
-        описание
-      </a></td>
-      <td><a href="view.html" class=""
-             th:href="@{'/' + ${lesson.id}}"
-             th:text="${lesson.video}">
-      </a>
       </td>
     </tr>
     </tbody>
