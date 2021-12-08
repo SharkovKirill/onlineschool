@@ -59,13 +59,13 @@
         <div class="row">
             <div class="col">
                 <label for="disabledSelect" class="form-label">КУРС</label>
-                <select th:field="*{course}" id="disabledSelect" class="form-select">
-                    <option th:value="english">Английский для школьников</option>
-                    <option th:value="java">Java</option>
+                <select id="disabledSelect" class="form-select">
+                    <option>Английский для школьников</option>
+                    <option>Java</option>
                 </select>
             </div>
             <div class="col">
-                <input type='button' value="+ДОБАВИТЬ КУРС" class="btn btn-outline-info"/>
+                <input type="submit" value="+ДОБАВИТЬ КУРС" class="btn btn-outline-info"/>
             </div>
         </div>
         <!--<div th:if="${#fields.hasErrors('*')}"-->
@@ -80,12 +80,13 @@
                 <iframe id="video_player" width="560" height="315" title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen="true">
+
                 </iframe>
             </div>
             <div class="col">
                 <label for="name">Название урока</label>
                 <input type="text"
-                       th:field="*{name}" class="form-control"/>
+                       th:field="*{name}" placeholder='Java primary' class="form-control"/>
                 <!--th:class="${#fields.hasErrors('summary')} ? 'field-error'"/>-->
                 <label for="description">Описание урока</label>
                 <textarea class="form-control"
@@ -101,6 +102,7 @@
         <div class="row">
             <div class="col">
                 <input onclick="loadVideo()" type="button" value="Загрузить видео"/>
+
             </div>
         </div>
         <div class="row">
