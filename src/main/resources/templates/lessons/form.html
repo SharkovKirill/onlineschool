@@ -35,6 +35,8 @@
             document.getElementById("video_player").src = fin_link;
         }
     </script>
+
+
 </head>
 <body>
 <h1 layout:fragment="header" class="container-fluid">Тут создаем урок</h1>
@@ -91,14 +93,30 @@
                     <option th:value="java">Java</option>
                 </select>
             </div>
-            <input type='button' value="+ДОБАВИТЬ КУРС" class="btn btn-outline-info"/>
+
+            <button id="add__course" class="header__butto">+ДОБАВИТЬ КУРС</button>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="./js/scripts.js"></script>
+
+            <!-- Модальное окно -->
+            <div class="modal">
+                <div class="modal__content">
+                    <!-- Контент модального окна -->
+                    <h1 class="modal__title">Введите название курса</h1>
+                    <p class="modal__description">Здесь будет ввод</p>
+                    <input type="text"
+                    th:field="*{corse}" placeholder='Java primary' class="form-control"/>
+                    <button class="modal__close-button">Отмена</button>
+                </div>
+            </div>
+
+<!--            <input type='button' value="+ДОБАВИТЬ КУРС" class="btn btn-outline-info"/>-->
             <input type="submit" value="Cохранить" style="margin-left:800px" class="btn btn-success"/>
             <a th:href="@{/}" href="lessons.html" class="btn btn-warning">Отмена</a>
 
         </div>
     </form>
 </div>
-
 
 <!--lksd-->
 </body>
