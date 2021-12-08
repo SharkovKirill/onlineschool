@@ -3,64 +3,98 @@
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorator="layout">
 <head>
-  <title>Тут создаем урок</title>
-  <style type="text/css">
-    * { margin: 0; padding: 0; }
-    p { padding: 10px; }
-    #left { position: absolute; left: 0; top: 0; width: 50%; }
-    #right { position: absolute; right: 0; top: auto; width: 50%; }
-  </style>
+    <title>Тут создаем урок</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            padding: 10px;
+        }
+
+        #left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50%;
+        }
+
+        #right {
+            position: absolute;
+            right: 0;
+            top: auto;
+            width: 50%;
+        }
+    </style>
+    <script>
+        function loadVideo() {
+            document.getElementById("video_player").src = document.getElementById("video").value;
+        }
+    </script>
 </head>
 <body>
 <h1 layout:fragment="header" class="container-fluid">Тут создаем урок</h1>
 <div layout:fragment="content"
      class="container-fluid">
-  <form id="lessonForm"
-        th:action="@{/(form)}"
-        th:object="${lesson}"
-        action="#"
-        method="post"
-        class="">
-    <div class="grid" style="--bs-columns: 2;">
-      <!--<div th:if="${#fields.hasErrors('*')}"-->
-      <!--class="alert alert-error">-->
-      <!--<p th:each="error : ${#fields.errors('*')}"-->
-      <!--th:text="${error}">-->
-      <!--Validation error-->
-      <!--</p>-->
-      <!--</div>-->
-      <div>
-        <label for="name">Название урока</label>
-        <input type="text"
-               th:field="*{name}" placeholder='Java primary' class="form-control"></input>
-        <!--th:class="${#fields.hasErrors('summary')} ? 'field-error'"/>-->
-      </div>
-      <div>
-        <label for="description">Описание урока</label>
-        <textarea class="form-control"
-                  th:field="*{description}">
+    <form id="lessonForm"
+          th:action="@{/(form)}"
+          th:object="${lesson}"
+          action="#"
+          method="post"
+          class="">
+        <div class="grid" style="--bs-columns: 2;">
+            <!--<div th:if="${#fields.hasErrors('*')}"-->
+            <!--class="alert alert-error">-->
+            <!--<p th:each="error : ${#fields.errors('*')}"-->
+            <!--th:text="${error}">-->
+            <!--Validation error-->
+            <!--</p>-->
+            <!--</div>-->
+            <div>
+                <label for="name">Название урока</label>
+                <input type="text"
+                       th:field="*{name}" placeholder='Java primary' class="form-control"/>
+                <!--th:class="${#fields.hasErrors('summary')} ? 'field-error'"/>-->
+            </div>
+            <div>
+                <label for="description">Описание урока</label>
+                <textarea class="form-control"
+                          th:field="*{description}">
                       <!--th:class="${#fields.hasErrors('text')} ? 'field-error'">-->
                   </textarea>
-      </div>
+            </div>
+            <div>
+                <label for="video">Ссылка на видео</label>
+                <input type="text" th:class="${#fields.hasErrors('video')} ? 'field-error'"
+                       th:field="*{video}"/>
+                <!--th:class="${#fields.hasErrors('text')} ? 'field-error'">-->
+            </div>
+            <div>
+                <label for="iframe">Предпоказ видео!</label>
+                <input onclick="loadVideo()" type="button" value="Нажми на меня"/>
 
-      <label for="video">Заглушка для вставки видео</label>
-      <textarea
-              th:field="*{video}">
-                      <!--th:class="${#fields.hasErrors('text')} ? 'field-error'">-->
-              </textarea>
-      <div class="mb-3">
-        <label for="disabledSelect" class="form-label">КУРС</label>
-        <select id="disabledSelect" class="form-select">
-          <option>Английский для школьников</option>
-          <option>Java</option>
-        </select>
-      </div>
-      <input type="submit" value="+ДОБАВИТЬ КУРС" class="btn btn-outline-info"/>
-      <input type="submit" value="Cохранить" style="margin-left:800px" class="btn btn-success"/>
-      <a th:href="@{/}" href="lessons.html" class="btn btn-warning" >Отмена</a>
+            </div>
+            <iframe id="video_player" width="560" height="315" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen="true">
 
-    </div>
-  </form>
+            </iframe>
+
+            <div class="mb-3">
+                <label for="disabledSelect" class="form-label">КУРС</label>
+                <select id="disabledSelect" class="form-select">
+                    <option>Английский для школьников</option>
+                    <option>Java</option>
+                </select>
+            </div>
+            <input type="submit" value="+ДОБАВИТЬ КУРС" class="btn btn-outline-info"/>
+            <input type="submit" value="Cохранить" style="margin-left:800px" class="btn btn-success"/>
+            <a th:href="@{/}" href="lessons.html" class="btn btn-warning">Отмена</a>
+
+        </div>
+    </form>
 </div>
 </body>
 </html>
