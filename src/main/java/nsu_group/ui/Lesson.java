@@ -12,11 +12,13 @@
  */
 
 package nsu_group.ui;
-
 import org.hibernate.validator.constraints.NotEmpty;
+
+import java.util.ArrayList;
 
 public class Lesson {
 
+    public ArrayList<String> lis;
     private int id;
 
     @NotEmpty(message = "Message is required.")
@@ -55,12 +57,13 @@ public class Lesson {
     }
 
     public String getVideo() {
-        return this.video;
+        return this.video.replace("watch?v=", "embed/");
     }
 
     public void setVideo(String video) {
         this.video = video;
     }
+
 
     public Lesson(){
         this.id = 0;
@@ -68,6 +71,7 @@ public class Lesson {
         this.description = "";
         this.video = "";
         this.course = "";
+        this.lis = new ArrayList<String>();
     }
 
     public String getCourse() {
@@ -77,5 +81,9 @@ public class Lesson {
     public void setCourse(String course) {
         this.course = course;
     }
+
+//    public void updateLis(String course) {
+//        lis = new ArrayList<String>(course);
+//    }
 }
 

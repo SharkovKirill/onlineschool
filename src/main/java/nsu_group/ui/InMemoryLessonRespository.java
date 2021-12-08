@@ -17,7 +17,9 @@
 package nsu_group.ui;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Formatter;
+import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 //import java.util.concurrent.atomic.AtomicLong;
@@ -29,102 +31,119 @@ import java.sql.*;
  */
 public class InMemoryLessonRespository implements LessonRepository {
 
-//	private final static String url = "jdbc:mysql://127.0.0.1:3306/onlineschool";
-	private final static String url = "jdbc:mysql://localhost/onlineschool";
-	private final static String user = "root";
+    //	private final static String url = "jdbc:mysql://127.0.0.1:3306/onlineschool";
+    private final static String url = "jdbc:mysql://localhost/onlineschool";
+    private final static String user = "root";
 
 //	private static AtomicLong counter = new AtomicLong();
 
-	private final ConcurrentMap<Integer, Lesson> lessons = new ConcurrentHashMap<Integer, Lesson>();
+    private final ConcurrentMap<Integer, Lesson> lessons = new ConcurrentHashMap<Integer, Lesson>();
 
-	@Override
-	public Iterable<Lesson> findAll() {
+    @Override
+    public Iterable<Lesson> findAll() {
 
-		try {
-			Connection connection = DriverManager.getConnection(url, user, "root");
-			Statement statement = connection.createStatement();
+        try {
+            Connection connection = DriverManager.getConnection(url, user, "root");
+            Statement statement = connection.createStatement();
 
-			ResultSet resultSet = statement.executeQuery("SELECT * FROM Lessons");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM Lessons;");
 //			resultSet.next();
-			while (resultSet.next()){
-				int id = resultSet.getInt("id");
-				Lesson lesson = new Lesson();
-				lesson.setId(id);
-				lesson.setName(resultSet.getString("name"));
-				lesson.setDescription(resultSet.getString("description"));
-				lesson.setVideo(resultSet.getString("video"));
-				lesson.setCourse(resultSet.getString("course"));
-				this.lessons.put(id, lesson);
-			}
-			connection.close();
-			statement.close();
-			return this.lessons.values();
-	} catch (SQLException throwables) {
-			throwables.printStackTrace();
-			return this.lessons.values();
-		}
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                Lesson lesson = new Lesson();
+                lesson.setId(id);
+                lesson.setName(resultSet.getString("name"));
+                lesson.setDescription(resultSet.getString("description"));
+                lesson.setVideo(resultSet.getString("video"));
+                lesson.setCourse(resultSet.getString("course"));
+                this.lessons.put(id, lesson);
+            }
+            connection.close();
+            statement.close();
+            return this.lessons.values();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            return this.lessons.values();
+        }
 //		return this.lessons.values();
-	}
+    }
 
 
-	@Override
-	public Lesson save(Lesson lesson) {
-		try {
-			Connection connection = DriverManager.getConnection(url, user, "root");
-			Statement statement = connection.createStatement();
+    @Override
+    public Lesson save(Lesson lesson) {
+        try {
+            Connection connection = DriverManager.getConnection(url, user, "root");
+            Statement statement = connection.createStatement();
 
-			Formatter s = new Formatter();
-			s.format("SELECT * FROM Lessons WHERE id= (select max(id) from Lessons);");
-			ResultSet resultSet = statement.executeQuery(String.valueOf(s));
-			resultSet.next();
-			int id = resultSet.getInt("id") + 1;
+            Formatter s = new Formatter();
+            s.format("SELECT * FROM Lessons WHERE id= (select max(id) from Lessons);");
+            ResultSet resultSet = statement.executeQuery(String.valueOf(s));
+            resultSet.next();
+            int id = resultSet.getInt("id") + 1;
 
-			Formatter sq = new Formatter();
-			sq.format("INSERT INTO `onlineschool`.`lessons` (`id`, `name`, `description`, `video`, `course`) VALUES ('%s', '%s', '%s', '%s', '%s');",
-					id, new String(lesson.getName().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getDescription().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getVideo().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8"));
-			statement.executeUpdate(String.valueOf(sq));
-			connection.close();
-			statement.close();
-			return lesson;
+            Formatter sq = new Formatter();
+            sq.format("INSERT INTO `onlineschool`.`lessons` (`id`, `name`, `description`, `video`, `course`) VALUES ('%s', '%s', '%s', '%s', '%s');",
+                    id, new String(lesson.getName().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getDescription().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getVideo().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8"));
+            statement.executeUpdate(String.valueOf(sq));
 
-		} catch (SQLException throwables) {
-			throwables.printStackTrace();
-			return lesson;
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-			return lesson;
-		}
-	}
 
-	@Override
-	public Lesson findLesson(int id) {
-		try {
-			Connection connection = DriverManager.getConnection(url, user, "root");
-			Statement statement = connection.createStatement();
 
-			String query = "SELECT name, description, video, course value FROM `lessons` WHERE id = '"+id+"';";
-			ResultSet rs = statement.executeQuery(query);
-			rs.next();
+            ResultSet array = statement.executeQuery("SELECT DISTINCT course FROM Lessons;");
+            ArrayList<String> li = new ArrayList<String>();
+            while(array.next()){
+                li.add(array.getString("course"));
+            }
+            lesson.lis = li;
+            System.out.println(li);
 
-			Lesson lesson = new Lesson();
-			lesson.setId(id);
-			lesson.setName(rs.getString("name"));
-			lesson.setDescription(rs.getString("description"));
-			lesson.setVideo(rs.getString("video"));
-			lesson.setCourse(rs.getString("course"));
-			connection.close();
-			statement.close();
-			return lesson;
 
-		} catch (SQLException throwables) {
-			throwables.printStackTrace();
-			Lesson lesson = new Lesson();
-			return lesson;
+
+
+
+
+            connection.close();
+            statement.close();
+            return lesson;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            return lesson;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return lesson;
+        }
+    }
+
+    @Override
+    public Lesson findLesson(int id) {
+        try {
+            Connection connection = DriverManager.getConnection(url, user, "root");
+            Statement statement = connection.createStatement();
+
+            String query = "SELECT name, description, video, course value FROM `lessons` WHERE id = '" + id + "';";
+            ResultSet rs = statement.executeQuery(query);
+            rs.next();
+
+            Lesson lesson = new Lesson();
+            lesson.setId(id);
+            lesson.setName(rs.getString("name"));
+            lesson.setDescription(rs.getString("description"));
+            lesson.setVideo(rs.getString("video"));
+            lesson.setCourse(rs.getString("course"));
+            connection.close();
+            statement.close();
+            return lesson;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            Lesson lesson = new Lesson();
+            return lesson;
 
 //		return this.lessons.get(id);
 //	}finally {
 ////			return lessons
 //		}
 
-		}
-}}
+        }
+    }
+}

@@ -72,5 +72,4 @@ public class LessonController {
 	public String foo() {
 		throw new RuntimeException("Expected exception in controller");
 	}
-
 }
