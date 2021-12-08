@@ -16,6 +16,7 @@
 
 package nsu_group.ui;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Formatter;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -80,7 +81,7 @@ public class InMemoryLessonRespository implements LessonRepository {
 
 			Formatter sq = new Formatter();
 			sq.format("INSERT INTO `onlineschool`.`lessons` (`id`, `name`, `description`, `video`, `course`) VALUES ('%s', '%s', '%s', '%s', '%s');",
-					id, lesson.getName(), lesson.getDescription(), lesson.getVideo(), lesson.getCourse());
+					id, new String(lesson.getName().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getDescription().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getVideo().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8"));
 			statement.executeUpdate(String.valueOf(sq));
 			connection.close();
 			statement.close();
@@ -88,6 +89,9 @@ public class InMemoryLessonRespository implements LessonRepository {
 
 		} catch (SQLException throwables) {
 			throwables.printStackTrace();
+			return lesson;
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
 			return lesson;
 		}
 	}
