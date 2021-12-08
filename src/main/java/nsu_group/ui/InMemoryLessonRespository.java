@@ -28,7 +28,8 @@ import java.sql.*;
  */
 public class InMemoryLessonRespository implements LessonRepository {
 
-	private final static String url = "jdbc:mysql://127.0.0.1:3306/onlineschool";
+//	private final static String url = "jdbc:mysql://127.0.0.1:3306/onlineschool";
+	private final static String url = "jdbc:mysql://localhost/onlineschool";
 	private final static String user = "root";
 
 //	private static AtomicLong counter = new AtomicLong();
@@ -39,7 +40,7 @@ public class InMemoryLessonRespository implements LessonRepository {
 	public Iterable<Lesson> findAll() {
 
 		try {
-			Connection connection = DriverManager.getConnection(url, user, "12124576");
+			Connection connection = DriverManager.getConnection(url, user, "root");
 			Statement statement = connection.createStatement();
 
 			ResultSet resultSet = statement.executeQuery("SELECT * FROM Lessons");
@@ -51,6 +52,7 @@ public class InMemoryLessonRespository implements LessonRepository {
 				lesson.setName(resultSet.getString("name"));
 				lesson.setDescription(resultSet.getString("description"));
 				lesson.setVideo(resultSet.getString("video"));
+				lesson.setCourse(resultSet.getString("course"));
 				this.lessons.put(id, lesson);
 			}
 			connection.close();
@@ -67,7 +69,7 @@ public class InMemoryLessonRespository implements LessonRepository {
 	@Override
 	public Lesson save(Lesson lesson) {
 		try {
-			Connection connection = DriverManager.getConnection(url, user, "12124576");
+			Connection connection = DriverManager.getConnection(url, user, "root");
 			Statement statement = connection.createStatement();
 
 			Formatter s = new Formatter();
@@ -77,8 +79,8 @@ public class InMemoryLessonRespository implements LessonRepository {
 			int id = resultSet.getInt("id") + 1;
 
 			Formatter sq = new Formatter();
-			sq.format("INSERT INTO `onlineschool`.`lessons` (`id`, `name`, `description`, `video`) VALUES ('%s', '%s', '%s', '%s');",
-					id, lesson.getName(), lesson.getDescription(), lesson.getVideo());
+			sq.format("INSERT INTO `onlineschool`.`lessons` (`id`, `name`, `description`, `video`, `course`) VALUES ('%s', '%s', '%s', '%s', '%s');",
+					id, lesson.getName(), lesson.getDescription(), lesson.getVideo(), lesson.getCourse());
 			statement.executeUpdate(String.valueOf(sq));
 			connection.close();
 			statement.close();
@@ -93,10 +95,10 @@ public class InMemoryLessonRespository implements LessonRepository {
 	@Override
 	public Lesson findLesson(int id) {
 		try {
-			Connection connection = DriverManager.getConnection(url, user, "12124576");
+			Connection connection = DriverManager.getConnection(url, user, "root");
 			Statement statement = connection.createStatement();
 
-			String query = "SELECT name, description, video value FROM `lessons` WHERE id = '"+id+"';";
+			String query = "SELECT name, description, video, course value FROM `lessons` WHERE id = '"+id+"';";
 			ResultSet rs = statement.executeQuery(query);
 			rs.next();
 
@@ -105,6 +107,7 @@ public class InMemoryLessonRespository implements LessonRepository {
 			lesson.setName(rs.getString("name"));
 			lesson.setDescription(rs.getString("description"));
 			lesson.setVideo(rs.getString("video"));
+			lesson.setCourse(rs.getString("course"));
 			connection.close();
 			statement.close();
 			return lesson;

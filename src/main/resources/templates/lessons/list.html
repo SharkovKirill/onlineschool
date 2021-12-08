@@ -18,28 +18,44 @@
       <td>Name</td>
       <td>Description</td>
       <td>Video</td>
+      <td>Course</td>
     </tr>
     </thead>
     <tbody>
-    <!--<tr th:if="${lessons.empty}">-->
-    <!--<td colspan="3">-->
-    <!--No lessons-->
-    <!--</td>-->
-    <!--</tr>-->
-    <tr th:if="${lessons.empty}">
-      <td colspan="3">
-        No lessons
-      </td>
-    </tr>
     <tr th:each="lesson : ${lessons}">
       <td th:text="${lesson.id}">1</td>
       <td>
         <a href="view.html"
            th:href="@{'/' + ${lesson.id}}"
-           th:text="${lesson.summary}">
+           th:text="${lesson.name}">
           The summary
         </a>
       </td>
+
+      <td>
+        <a href="view.html"
+           th:href="@{'/' + ${lesson.id}}"
+           th:text="${lesson.description}">
+          The summary
+        </a>
+      </td>
+
+      <td>
+        <a href="view.html"
+           th:href="@{'/' + ${lesson.id}}"
+           th:text="${lesson.video}">
+          The summary
+        </a>
+      </td>
+
+      <td>
+        <a href="view.html"
+           th:href="@{'/' + ${lesson.id}}"
+           th:text="${lesson.course}">
+          The summary
+        </a>
+      </td>
+
     </tr>
     </tbody>
   </table>

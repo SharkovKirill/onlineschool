@@ -28,6 +28,8 @@ public class Lesson {
     @NotEmpty(message = "Video is required.")
     private String video;
 
+    private String course;
+
     public int getId() {
         return this.id;
     }
@@ -65,6 +67,15 @@ public class Lesson {
         this.name = "";
         this.description = "";
         this.video = "";
+        this.course = "";
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
     }
 }
 

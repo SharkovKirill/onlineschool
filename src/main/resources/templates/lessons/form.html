@@ -30,7 +30,9 @@
     </style>
     <script>
         function loadVideo() {
-            document.getElementById("video_player").src = document.getElementById("video").value;
+            var link = document.getElementById("video").value;
+            var fin_link = link.replace("watch?v=", "embed/")
+            document.getElementById("video_player").src = fin_link;
         }
     </script>
 </head>
@@ -62,7 +64,7 @@
                 <label for="description">Описание урока</label>
                 <textarea class="form-control"
                           th:field="*{description}">
-                      <!--th:class="${#fields.hasErrors('text')} ? 'field-error'">-->
+                      th:class="${#fields.hasErrors('text')} ? 'field-error'">
                   </textarea>
             </div>
             <div>
@@ -84,12 +86,12 @@
 
             <div class="mb-3">
                 <label for="disabledSelect" class="form-label">КУРС</label>
-                <select id="disabledSelect" class="form-select">
-                    <option>Английский для школьников</option>
-                    <option>Java</option>
+                <select th:field="*{course}" id="disabledSelect" class="form-select">
+                    <option th:value="english">Английский для школьников</option>
+                    <option th:value="java">Java</option>
                 </select>
             </div>
-            <input type="submit" value="+ДОБАВИТЬ КУРС" class="btn btn-outline-info"/>
+            <input type='button' value="+ДОБАВИТЬ КУРС" class="btn btn-outline-info"/>
             <input type="submit" value="Cохранить" style="margin-left:800px" class="btn btn-success"/>
             <a th:href="@{/}" href="lessons.html" class="btn btn-warning">Отмена</a>
 
