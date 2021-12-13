@@ -1,0 +1,229 @@
+Index: .idea/dbnavigator.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"DBNavigator.Project.DataEditorManager\">\n    <record-view-column-sorting-type value=\"BY_INDEX\" />\n    <value-preview-text-wrapping value=\"true\" />\n    <value-preview-pinned value=\"false\" />\n  </component>\n  <component name=\"DBNavigator.Project.DataExportManager\">\n    <export-instructions>\n      <create-header value=\"true\" />\n      <friendly-headers value=\"false\" />\n      <quote-values-containing-separator value=\"true\" />\n      <quote-all-values value=\"false\" />\n      <value-separator value=\"\" />\n      <file-name value=\"\" />\n      <file-location value=\"\" />\n      <scope value=\"GLOBAL\" />\n      <destination value=\"FILE\" />\n      <format value=\"EXCEL\" />\n      <charset value=\"windows-1251\" />\n    </export-instructions>\n  </component>\n  <component name=\"DBNavigator.Project.DatabaseBrowserManager\">\n    <autoscroll-to-editor value=\"false\" />\n    <autoscroll-from-editor value=\"true\" />\n    <show-object-properties value=\"true\" />\n    <loaded-nodes />\n  </component>\n  <component name=\"DBNavigator.Project.DatabaseFileManager\">\n    <open-files />\n  </component>\n  <component name=\"DBNavigator.Project.EditorStateManager\">\n    <last-used-providers />\n  </component>\n  <component name=\"DBNavigator.Project.ExecutionManager\">\n    <retain-sticky-names value=\"false\" />\n  </component>\n  <component name=\"DBNavigator.Project.MethodExecutionManager\">\n    <method-browser />\n    <execution-history>\n      <group-entries value=\"true\" />\n      <execution-inputs />\n    </execution-history>\n    <argument-values-cache />\n  </component>\n  <component name=\"DBNavigator.Project.ObjectDependencyManager\">\n    <last-used-dependency-type value=\"INCOMING\" />\n  </component>\n  <component name=\"DBNavigator.Project.ObjectQuickFilterManager\">\n    <last-used-operator value=\"EQUAL\" />\n    <filters />\n  </component>\n  <component name=\"DBNavigator.Project.ScriptExecutionManager\" clear-outputs=\"true\">\n    <recently-used-interfaces />\n  </component>\n  <component name=\"DBNavigator.Project.Settings\">\n    <connections />\n    <browser-settings>\n      <general>\n        <display-mode value=\"TABBED\" />\n        <navigation-history-size value=\"100\" />\n        <show-object-details value=\"false\" />\n      </general>\n      <filters>\n        <object-type-filter>\n          <object-type name=\"SCHEMA\" enabled=\"true\" />\n          <object-type name=\"USER\" enabled=\"true\" />\n          <object-type name=\"ROLE\" enabled=\"true\" />\n          <object-type name=\"PRIVILEGE\" enabled=\"true\" />\n          <object-type name=\"CHARSET\" enabled=\"true\" />\n          <object-type name=\"TABLE\" enabled=\"true\" />\n          <object-type name=\"VIEW\" enabled=\"true\" />\n          <object-type name=\"MATERIALIZED_VIEW\" enabled=\"true\" />\n          <object-type name=\"NESTED_TABLE\" enabled=\"true\" />\n          <object-type name=\"COLUMN\" enabled=\"true\" />\n          <object-type name=\"INDEX\" enabled=\"true\" />\n          <object-type name=\"CONSTRAINT\" enabled=\"true\" />\n          <object-type name=\"DATASET_TRIGGER\" enabled=\"true\" />\n          <object-type name=\"DATABASE_TRIGGER\" enabled=\"true\" />\n          <object-type name=\"SYNONYM\" enabled=\"true\" />\n          <object-type name=\"SEQUENCE\" enabled=\"true\" />\n          <object-type name=\"PROCEDURE\" enabled=\"true\" />\n          <object-type name=\"FUNCTION\" enabled=\"true\" />\n          <object-type name=\"PACKAGE\" enabled=\"true\" />\n          <object-type name=\"TYPE\" enabled=\"true\" />\n          <object-type name=\"TYPE_ATTRIBUTE\" enabled=\"true\" />\n          <object-type name=\"ARGUMENT\" enabled=\"true\" />\n          <object-type name=\"DIMENSION\" enabled=\"true\" />\n          <object-type name=\"CLUSTER\" enabled=\"true\" />\n          <object-type name=\"DBLINK\" enabled=\"true\" />\n        </object-type-filter>\n      </filters>\n      <sorting>\n        <object-type name=\"COLUMN\" sorting-type=\"NAME\" />\n        <object-type name=\"FUNCTION\" sorting-type=\"NAME\" />\n        <object-type name=\"PROCEDURE\" sorting-type=\"NAME\" />\n        <object-type name=\"ARGUMENT\" sorting-type=\"POSITION\" />\n      </sorting>\n      <default-editors>\n        <object-type name=\"VIEW\" editor-type=\"SELECTION\" />\n        <object-type name=\"PACKAGE\" editor-type=\"SELECTION\" />\n        <object-type name=\"TYPE\" editor-type=\"SELECTION\" />\n      </default-editors>\n    </browser-settings>\n    <navigation-settings>\n      <lookup-filters>\n        <lookup-objects>\n          <object-type name=\"SCHEMA\" enabled=\"true\" />\n          <object-type name=\"USER\" enabled=\"false\" />\n          <object-type name=\"ROLE\" enabled=\"false\" />\n          <object-type name=\"PRIVILEGE\" enabled=\"false\" />\n          <object-type name=\"CHARSET\" enabled=\"false\" />\n          <object-type name=\"TABLE\" enabled=\"true\" />\n          <object-type name=\"VIEW\" enabled=\"true\" />\n          <object-type name=\"MATERIALIZED VIEW\" enabled=\"true\" />\n          <object-type name=\"INDEX\" enabled=\"true\" />\n          <object-type name=\"CONSTRAINT\" enabled=\"true\" />\n          <object-type name=\"DATASET TRIGGER\" enabled=\"true\" />\n          <object-type name=\"DATABASE TRIGGER\" enabled=\"true\" />\n          <object-type name=\"SYNONYM\" enabled=\"false\" />\n          <object-type name=\"SEQUENCE\" enabled=\"true\" />\n          <object-type name=\"PROCEDURE\" enabled=\"true\" />\n          <object-type name=\"FUNCTION\" enabled=\"true\" />\n          <object-type name=\"PACKAGE\" enabled=\"true\" />\n          <object-type name=\"TYPE\" enabled=\"true\" />\n          <object-type name=\"DIMENSION\" enabled=\"false\" />\n          <object-type name=\"CLUSTER\" enabled=\"false\" />\n          <object-type name=\"DBLINK\" enabled=\"true\" />\n        </lookup-objects>\n        <force-database-load value=\"false\" />\n        <prompt-connection-selection value=\"true\" />\n        <prompt-schema-selection value=\"true\" />\n      </lookup-filters>\n    </navigation-settings>\n    <dataset-grid-settings>\n      <general>\n        <enable-zooming value=\"true\" />\n        <enable-column-tooltip value=\"true\" />\n      </general>\n      <sorting>\n        <nulls-first value=\"true\" />\n        <max-sorting-columns value=\"4\" />\n      </sorting>\n      <tracking-columns>\n        <columnNames value=\"\" />\n        <visible value=\"true\" />\n        <editable value=\"false\" />\n      </tracking-columns>\n    </dataset-grid-settings>\n    <dataset-editor-settings>\n      <text-editor-popup>\n        <active value=\"false\" />\n        <active-if-empty value=\"false\" />\n        <data-length-threshold value=\"100\" />\n        <popup-delay value=\"1000\" />\n      </text-editor-popup>\n      <values-actions-popup>\n        <show-popup-button value=\"true\" />\n        <element-count-threshold value=\"1000\" />\n        <data-length-threshold value=\"250\" />\n      </values-actions-popup>\n      <general>\n        <fetch-block-size value=\"100\" />\n        <fetch-timeout value=\"30\" />\n        <trim-whitespaces value=\"true\" />\n        <convert-empty-strings-to-null value=\"true\" />\n        <select-content-on-cell-edit value=\"true\" />\n        <large-value-preview-active value=\"true\" />\n      </general>\n      <filters>\n        <prompt-filter-dialog value=\"true\" />\n        <default-filter-type value=\"BASIC\" />\n      </filters>\n      <qualified-text-editor text-length-threshold=\"300\">\n        <content-types>\n          <content-type name=\"Text\" enabled=\"true\" />\n          <content-type name=\"Properties\" enabled=\"true\" />\n          <content-type name=\"XML\" enabled=\"true\" />\n          <content-type name=\"DTD\" enabled=\"true\" />\n          <content-type name=\"HTML\" enabled=\"true\" />\n          <content-type name=\"XHTML\" enabled=\"true\" />\n          <content-type name=\"CSS\" enabled=\"true\" />\n          <content-type name=\"Java\" enabled=\"true\" />\n          <content-type name=\"SQL\" enabled=\"true\" />\n          <content-type name=\"PL/SQL\" enabled=\"true\" />\n          <content-type name=\"JavaScript\" enabled=\"true\" />\n          <content-type name=\"JSON\" enabled=\"true\" />\n          <content-type name=\"JSON5\" enabled=\"true\" />\n          <content-type name=\"JSP\" enabled=\"true\" />\n          <content-type name=\"JSPx\" enabled=\"true\" />\n          <content-type name=\"Groovy\" enabled=\"true\" />\n          <content-type name=\"FTL\" enabled=\"true\" />\n          <content-type name=\"TML\" enabled=\"true\" />\n          <content-type name=\"GSP\" enabled=\"true\" />\n          <content-type name=\"ASP\" enabled=\"true\" />\n          <content-type name=\"VTL\" enabled=\"true\" />\n          <content-type name=\"AIDL\" enabled=\"true\" />\n          <content-type name=\"YAML\" enabled=\"true\" />\n          <content-type name=\"Flex\" enabled=\"true\" />\n          <content-type name=\"Manifest\" enabled=\"true\" />\n        </content-types>\n      </qualified-text-editor>\n      <record-navigation>\n        <navigation-target value=\"VIEWER\" />\n      </record-navigation>\n    </dataset-editor-settings>\n    <code-editor-settings>\n      <general>\n        <show-object-navigation-gutter value=\"false\" />\n        <show-spec-declaration-navigation-gutter value=\"true\" />\n        <enable-spellchecking value=\"true\" />\n        <enable-reference-spellchecking value=\"false\" />\n      </general>\n      <confirmations>\n        <save-changes value=\"false\" />\n        <revert-changes value=\"true\" />\n      </confirmations>\n    </code-editor-settings>\n    <code-completion-settings>\n      <filters>\n        <basic-filter>\n          <filter-element type=\"RESERVED_WORD\" id=\"keyword\" selected=\"true\" />\n          <filter-element type=\"RESERVED_WORD\" id=\"function\" selected=\"true\" />\n          <filter-element type=\"RESERVED_WORD\" id=\"parameter\" selected=\"true\" />\n          <filter-element type=\"RESERVED_WORD\" id=\"datatype\" selected=\"true\" />\n          <filter-element type=\"RESERVED_WORD\" id=\"exception\" selected=\"true\" />\n          <filter-element type=\"OBJECT\" id=\"schema\" selected=\"true\" />\n          <filter-element type=\"OBJECT\" id=\"role\" selected=\"true\" />\n          <filter-element type=\"OBJECT\" id=\"user\" selected=\"true\" />\n          <filter-element type=\"OBJECT\" id=\"privilege\" selected=\"true\" />\n          <user-schema>\n            <filter-element type=\"OBJECT\" id=\"table\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"view\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"materialized view\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"index\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"constraint\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"trigger\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"synonym\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"sequence\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"procedure\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"function\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"package\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"type\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"dimension\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"cluster\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"dblink\" selected=\"true\" />\n          </user-schema>\n          <public-schema>\n            <filter-element type=\"OBJECT\" id=\"table\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"view\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"materialized view\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"index\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"constraint\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"trigger\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"synonym\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"sequence\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"procedure\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"function\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"package\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"type\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"dimension\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"cluster\" selected=\"false\" />\n            <filter-element type=\"OBJECT\" id=\"dblink\" selected=\"false\" />\n          </public-schema>\n          <any-schema>\n            <filter-element type=\"OBJECT\" id=\"table\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"view\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"materialized view\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"index\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"constraint\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"trigger\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"synonym\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"sequence\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"procedure\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"function\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"package\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"type\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"dimension\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"cluster\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"dblink\" selected=\"true\" />\n          </any-schema>\n        </basic-filter>\n        <extended-filter>\n          <filter-element type=\"RESERVED_WORD\" id=\"keyword\" selected=\"true\" />\n          <filter-element type=\"RESERVED_WORD\" id=\"function\" selected=\"true\" />\n          <filter-element type=\"RESERVED_WORD\" id=\"parameter\" selected=\"true\" />\n          <filter-element type=\"RESERVED_WORD\" id=\"datatype\" selected=\"true\" />\n          <filter-element type=\"RESERVED_WORD\" id=\"exception\" selected=\"true\" />\n          <filter-element type=\"OBJECT\" id=\"schema\" selected=\"true\" />\n          <filter-element type=\"OBJECT\" id=\"user\" selected=\"true\" />\n          <filter-element type=\"OBJECT\" id=\"role\" selected=\"true\" />\n          <filter-element type=\"OBJECT\" id=\"privilege\" selected=\"true\" />\n          <user-schema>\n            <filter-element type=\"OBJECT\" id=\"table\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"view\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"materialized view\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"index\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"constraint\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"trigger\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"synonym\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"sequence\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"procedure\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"function\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"package\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"type\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"dimension\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"cluster\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"dblink\" selected=\"true\" />\n          </user-schema>\n          <public-schema>\n            <filter-element type=\"OBJECT\" id=\"table\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"view\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"materialized view\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"index\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"constraint\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"trigger\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"synonym\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"sequence\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"procedure\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"function\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"package\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"type\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"dimension\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"cluster\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"dblink\" selected=\"true\" />\n          </public-schema>\n          <any-schema>\n            <filter-element type=\"OBJECT\" id=\"table\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"view\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"materialized view\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"index\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"constraint\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"trigger\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"synonym\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"sequence\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"procedure\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"function\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"package\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"type\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"dimension\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"cluster\" selected=\"true\" />\n            <filter-element type=\"OBJECT\" id=\"dblink\" selected=\"true\" />\n          </any-schema>\n        </extended-filter>\n      </filters>\n      <sorting enabled=\"true\">\n        <sorting-element type=\"RESERVED_WORD\" id=\"keyword\" />\n        <sorting-element type=\"RESERVED_WORD\" id=\"datatype\" />\n        <sorting-element type=\"OBJECT\" id=\"column\" />\n        <sorting-element type=\"OBJECT\" id=\"table\" />\n        <sorting-element type=\"OBJECT\" id=\"view\" />\n        <sorting-element type=\"OBJECT\" id=\"materialized view\" />\n        <sorting-element type=\"OBJECT\" id=\"index\" />\n        <sorting-element type=\"OBJECT\" id=\"constraint\" />\n        <sorting-element type=\"OBJECT\" id=\"trigger\" />\n        <sorting-element type=\"OBJECT\" id=\"synonym\" />\n        <sorting-element type=\"OBJECT\" id=\"sequence\" />\n        <sorting-element type=\"OBJECT\" id=\"procedure\" />\n        <sorting-element type=\"OBJECT\" id=\"function\" />\n        <sorting-element type=\"OBJECT\" id=\"package\" />\n        <sorting-element type=\"OBJECT\" id=\"type\" />\n        <sorting-element type=\"OBJECT\" id=\"dimension\" />\n        <sorting-element type=\"OBJECT\" id=\"cluster\" />\n        <sorting-element type=\"OBJECT\" id=\"dblink\" />\n        <sorting-element type=\"OBJECT\" id=\"schema\" />\n        <sorting-element type=\"OBJECT\" id=\"role\" />\n        <sorting-element type=\"OBJECT\" id=\"user\" />\n        <sorting-element type=\"RESERVED_WORD\" id=\"function\" />\n        <sorting-element type=\"RESERVED_WORD\" id=\"parameter\" />\n      </sorting>\n      <format>\n        <enforce-code-style-case value=\"true\" />\n      </format>\n    </code-completion-settings>\n    <execution-engine-settings>\n      <statement-execution>\n        <fetch-block-size value=\"100\" />\n        <execution-timeout value=\"20\" />\n        <debug-execution-timeout value=\"600\" />\n        <focus-result value=\"false\" />\n        <prompt-execution value=\"false\" />\n      </statement-execution>\n      <script-execution>\n        <command-line-interfaces />\n        <execution-timeout value=\"300\" />\n      </script-execution>\n      <method-execution>\n        <execution-timeout value=\"30\" />\n        <debug-execution-timeout value=\"600\" />\n        <parameter-history-size value=\"10\" />\n      </method-execution>\n    </execution-engine-settings>\n    <operation-settings>\n      <transactions>\n        <uncommitted-changes>\n          <on-project-close value=\"ASK\" />\n          <on-disconnect value=\"ASK\" />\n          <on-autocommit-toggle value=\"ASK\" />\n        </uncommitted-changes>\n        <multiple-uncommitted-changes>\n          <on-commit value=\"ASK\" />\n          <on-rollback value=\"ASK\" />\n        </multiple-uncommitted-changes>\n      </transactions>\n      <session-browser>\n        <disconnect-session value=\"ASK\" />\n        <kill-session value=\"ASK\" />\n        <reload-on-filter-change value=\"false\" />\n      </session-browser>\n      <compiler>\n        <compile-type value=\"KEEP\" />\n        <compile-dependencies value=\"ASK\" />\n        <always-show-controls value=\"false\" />\n      </compiler>\n      <debugger>\n        <debugger-type value=\"ASK\" />\n        <use-generic-runners value=\"true\" />\n      </debugger>\n    </operation-settings>\n    <ddl-file-settings>\n      <extensions>\n        <mapping file-type-id=\"VIEW\" extensions=\"vw\" />\n        <mapping file-type-id=\"TRIGGER\" extensions=\"trg\" />\n        <mapping file-type-id=\"PROCEDURE\" extensions=\"prc\" />\n        <mapping file-type-id=\"FUNCTION\" extensions=\"fnc\" />\n        <mapping file-type-id=\"PACKAGE\" extensions=\"pkg\" />\n        <mapping file-type-id=\"PACKAGE_SPEC\" extensions=\"pks\" />\n        <mapping file-type-id=\"PACKAGE_BODY\" extensions=\"pkb\" />\n        <mapping file-type-id=\"TYPE\" extensions=\"tpe\" />\n        <mapping file-type-id=\"TYPE_SPEC\" extensions=\"tps\" />\n        <mapping file-type-id=\"TYPE_BODY\" extensions=\"tpb\" />\n      </extensions>\n      <general>\n        <lookup-ddl-files value=\"true\" />\n        <create-ddl-files value=\"false\" />\n        <synchronize-ddl-files value=\"true\" />\n        <use-qualified-names value=\"false\" />\n        <make-scripts-rerunnable value=\"true\" />\n      </general>\n    </ddl-file-settings>\n    <general-settings>\n      <regional-settings>\n        <date-format value=\"MEDIUM\" />\n        <number-format value=\"UNGROUPED\" />\n        <locale value=\"SYSTEM_DEFAULT\" />\n        <use-custom-formats value=\"false\" />\n      </regional-settings>\n      <environment>\n        <environment-types>\n          <environment-type id=\"development\" name=\"Development\" description=\"Development environment\" color=\"-2430209/-12296320\" readonly-code=\"false\" readonly-data=\"false\" />\n          <environment-type id=\"integration\" name=\"Integration\" description=\"Integration environment\" color=\"-2621494/-12163514\" readonly-code=\"true\" readonly-data=\"false\" />\n          <environment-type id=\"production\" name=\"Production\" description=\"Productive environment\" color=\"-11574/-10271420\" readonly-code=\"true\" readonly-data=\"true\" />\n          <environment-type id=\"other\" name=\"Other\" description=\"\" color=\"-1576/-10724543\" readonly-code=\"false\" readonly-data=\"false\" />\n        </environment-types>\n        <visibility-settings>\n          <connection-tabs value=\"true\" />\n          <dialog-headers value=\"true\" />\n          <object-editor-tabs value=\"true\" />\n          <script-editor-tabs value=\"false\" />\n          <execution-result-tabs value=\"true\" />\n        </visibility-settings>\n      </environment>\n    </general-settings>\n  </component>\n  <component name=\"DBNavigator.Project.StatementExecutionManager\">\n    <execution-variables />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dbnavigator.xml b/.idea/dbnavigator.xml
+--- a/.idea/dbnavigator.xml	(revision 0c7bf33c1d569e94501fdc419a9396a30fd33680)
++++ b/.idea/dbnavigator.xml	(date 1638979888597)
+@@ -2,7 +2,7 @@
+ <project version="4">
+   <component name="DBNavigator.Project.DataEditorManager">
+     <record-view-column-sorting-type value="BY_INDEX" />
+-    <value-preview-text-wrapping value="true" />
++    <value-preview-text-wrapping value="false" />
+     <value-preview-pinned value="false" />
+   </component>
+   <component name="DBNavigator.Project.DataExportManager">
+@@ -17,17 +17,29 @@
+       <scope value="GLOBAL" />
+       <destination value="FILE" />
+       <format value="EXCEL" />
+-      <charset value="windows-1251" />
++      <charset value="UTF-8" />
+     </export-instructions>
+   </component>
+   <component name="DBNavigator.Project.DatabaseBrowserManager">
+     <autoscroll-to-editor value="false" />
+     <autoscroll-from-editor value="true" />
+     <show-object-properties value="true" />
+-    <loaded-nodes />
++    <loaded-nodes>
++      <connection connection-id="ac2cd30e-d0e8-4cae-9517-c201b3909033">
++        <schema name="onlineschool" object-types="table, view, procedure, function, constraint, index, column, dataset trigger" />
++      </connection>
++    </loaded-nodes>
++  </component>
++  <component name="DBNavigator.Project.DatabaseConsoleManager">
++    <connection id="ac2cd30e-d0e8-4cae-9517-c201b3909033">
++      <console name="Connection" type="STANDARD" schema="mysql" session="Main" />
++    </connection>
+   </component>
+   <component name="DBNavigator.Project.DatabaseFileManager">
+     <open-files />
++  </component>
++  <component name="DBNavigator.Project.DatabaseSessionManager">
++    <connection id="ac2cd30e-d0e8-4cae-9517-c201b3909033" />
+   </component>
+   <component name="DBNavigator.Project.EditorStateManager">
+     <last-used-providers />
+@@ -54,7 +66,92 @@
+     <recently-used-interfaces />
+   </component>
+   <component name="DBNavigator.Project.Settings">
+-    <connections />
++    <connections>
++      <connection id="ac2cd30e-d0e8-4cae-9517-c201b3909033" active="true">
++        <database>
++          <name value="Connection" />
++          <description value="" />
++          <database-type value="MYSQL" />
++          <config-type value="BASIC" />
++          <database-version value="5.7" />
++          <driver-source value="BUILTIN" />
++          <driver-library value="" />
++          <driver value="" />
++          <url-type value="DATABASE" />
++          <host value="localhost" />
++          <port value="8889" />
++          <database value="mysql" />
++          <type value="USER_PASSWORD" />
++          <user value="root" />
++          <deprecated-pwd value="cm9vdA==" />
++        </database>
++        <properties>
++          <auto-commit value="false" />
++        </properties>
++        <ssh-settings>
++          <active value="false" />
++          <proxy-host value="" />
++          <proxy-port value="22" />
++          <proxy-user value="" />
++          <deprecated-proxy-pwd value="" />
++          <auth-type value="PASSWORD" />
++          <key-file value="" />
++          <key-passphrase value="" />
++        </ssh-settings>
++        <ssl-settings>
++          <active value="false" />
++          <certificate-authority-file value="" />
++          <client-certificate-file value="" />
++          <client-key-file value="" />
++        </ssl-settings>
++        <details>
++          <charset value="UTF-8" />
++          <session-management value="true" />
++          <ddl-file-binding value="true" />
++          <database-logging value="false" />
++          <connect-automatically value="true" />
++          <restore-workspace value="true" />
++          <restore-workspace-deep value="true" />
++          <environment-type value="default" />
++          <connectivity-timeout value="5" />
++          <idle-time-to-disconnect value="30" />
++          <idle-time-to-disconnect-pool value="5" />
++          <credential-expiry-time value="10" />
++          <max-connection-pool-size value="7" />
++          <alternative-statement-delimiter value="" />
++        </details>
++        <object-filters hide-empty-schemas="false" hide-pseudo-columns="false">
++          <object-type-filter use-master-settings="true">
++            <object-type name="SCHEMA" enabled="true" />
++            <object-type name="USER" enabled="true" />
++            <object-type name="ROLE" enabled="true" />
++            <object-type name="PRIVILEGE" enabled="true" />
++            <object-type name="CHARSET" enabled="true" />
++            <object-type name="TABLE" enabled="true" />
++            <object-type name="VIEW" enabled="true" />
++            <object-type name="MATERIALIZED_VIEW" enabled="true" />
++            <object-type name="NESTED_TABLE" enabled="true" />
++            <object-type name="COLUMN" enabled="true" />
++            <object-type name="INDEX" enabled="true" />
++            <object-type name="CONSTRAINT" enabled="true" />
++            <object-type name="DATASET_TRIGGER" enabled="true" />
++            <object-type name="DATABASE_TRIGGER" enabled="true" />
++            <object-type name="SYNONYM" enabled="true" />
++            <object-type name="SEQUENCE" enabled="true" />
++            <object-type name="PROCEDURE" enabled="true" />
++            <object-type name="FUNCTION" enabled="true" />
++            <object-type name="PACKAGE" enabled="true" />
++            <object-type name="TYPE" enabled="true" />
++            <object-type name="TYPE_ATTRIBUTE" enabled="true" />
++            <object-type name="ARGUMENT" enabled="true" />
++            <object-type name="DIMENSION" enabled="true" />
++            <object-type name="CLUSTER" enabled="true" />
++            <object-type name="DBLINK" enabled="true" />
++          </object-type-filter>
++          <object-name-filters />
++        </object-filters>
++      </connection>
++    </connections>
+     <browser-settings>
+       <general>
+         <display-mode value="TABBED" />
+@@ -190,13 +287,10 @@
+           <content-type name="JSPx" enabled="true" />
+           <content-type name="Groovy" enabled="true" />
+           <content-type name="FTL" enabled="true" />
+-          <content-type name="TML" enabled="true" />
+           <content-type name="GSP" enabled="true" />
+-          <content-type name="ASP" enabled="true" />
+           <content-type name="VTL" enabled="true" />
+           <content-type name="AIDL" enabled="true" />
+           <content-type name="YAML" enabled="true" />
+-          <content-type name="Flex" enabled="true" />
+           <content-type name="Manifest" enabled="true" />
+         </content-types>
+       </qualified-text-editor>
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Allow Thymeleaf templates to be reloaded at dev time\nspring.thymeleaf.cache: false\nserver.tomcat.access_log_enabled: true\nserver.tomcat.basedir: target/tomcat
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision 0c7bf33c1d569e94501fdc419a9396a30fd33680)
++++ b/src/main/resources/application.properties	(date 1638973582736)
+@@ -1,4 +1,5 @@
+ # Allow Thymeleaf templates to be reloaded at dev time
+ spring.thymeleaf.cache: false
+ server.tomcat.access_log_enabled: true
+-server.tomcat.basedir: target/tomcat
+\ No newline at end of file
++server.tomcat.basedir: target/tomcat
++server.port = 1488
+\ No newline at end of file
+Index: src/main/java/nsu_group/ui/InMemoryLessonRespository.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>/*\n * Copyright 2012-2013 the original author or authors.\n *\n * Licensed under the Apache License, Version 2.0 (the \"License\");\n * you may not use this file except in compliance with the License.\n * You may obtain a copy of the License at\n *\n *      http://www.apache.org/licenses/LICENSE-2.0\n *\n * Unless required by applicable law or agreed to in writing, software\n * distributed under the License is distributed on an \"AS IS\" BASIS,\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n * See the License for the specific language governing permissions and\n * limitations under the License.\n */\n\npackage nsu_group.ui;\n\nimport java.util.Formatter;\nimport java.util.concurrent.ConcurrentHashMap;\nimport java.util.concurrent.ConcurrentMap;\n//import java.util.concurrent.atomic.AtomicLong;\nimport java.sql.*;\n\n\n/**\n * @author Dave Syer\n */\npublic class InMemoryLessonRespository implements LessonRepository {\n\n\tprivate final static String url = \"jdbc:mysql://127.0.0.1:3306/onlineschool\";\n\tprivate final static String user = \"root\";\n\n//\tprivate static AtomicLong counter = new AtomicLong();\n\n\tprivate final ConcurrentMap<Integer, Lesson> lessons = new ConcurrentHashMap<Integer, Lesson>();\n\n\t@Override\n\tpublic Iterable<Lesson> findAll() {\n\n\t\ttry {\n\t\t\tConnection connection = DriverManager.getConnection(url, user, \"12124576\");\n\t\t\tStatement statement = connection.createStatement();\n\n\t\t\tResultSet resultSet = statement.executeQuery(\"SELECT * FROM Lessons\");\n//\t\t\tresultSet.next();\n\t\t\twhile (resultSet.next()){\n\t\t\t\tint id = resultSet.getInt(\"id\");\n\t\t\t\tLesson lesson = new Lesson();\n\t\t\t\tlesson.setId(id);\n\t\t\t\tlesson.setName(resultSet.getString(\"name\"));\n\t\t\t\tlesson.setDescription(resultSet.getString(\"description\"));\n\t\t\t\tlesson.setVideo(resultSet.getString(\"video\"));\n\t\t\t\tthis.lessons.put(id, lesson);\n\t\t\t}\n\t\t\tconnection.close();\n\t\t\tstatement.close();\n\t\t\treturn this.lessons.values();\n\t} catch (SQLException throwables) {\n\t\t\tthrowables.printStackTrace();\n\t\t\treturn this.lessons.values();\n\t\t}\n//\t\treturn this.lessons.values();\n\t}\n\n\n\t@Override\n\tpublic Lesson save(Lesson lesson) {\n\t\ttry {\n\t\t\tConnection connection = DriverManager.getConnection(url, user, \"12124576\");\n\t\t\tStatement statement = connection.createStatement();\n\n\t\t\tFormatter s = new Formatter();\n\t\t\ts.format(\"SELECT * FROM Lessons WHERE id= (select max(id) from Lessons);\");\n\t\t\tResultSet resultSet = statement.executeQuery(String.valueOf(s));\n\t\t\tresultSet.next();\n\t\t\tint id = resultSet.getInt(\"id\") + 1;\n\n\t\t\tFormatter sq = new Formatter();\n\t\t\tsq.format(\"INSERT INTO `onlineschool`.`lessons` (`id`, `name`, `description`, `video`) VALUES ('%s', '%s', '%s', '%s');\",\n\t\t\t\t\tid, lesson.getName(), lesson.getDescription(), lesson.getVideo());\n\t\t\tstatement.executeUpdate(String.valueOf(sq));\n\t\t\tconnection.close();\n\t\t\tstatement.close();\n\t\t\treturn lesson;\n\n\t\t} catch (SQLException throwables) {\n\t\t\tthrowables.printStackTrace();\n\t\t\treturn lesson;\n\t\t}\n\t}\n\n\t@Override\n\tpublic Lesson findLesson(int id) {\n\t\ttry {\n\t\t\tConnection connection = DriverManager.getConnection(url, user, \"12124576\");\n\t\t\tStatement statement = connection.createStatement();\n\n\t\t\tString query = \"SELECT name, description, video value FROM `lessons` WHERE id = '\"+id+\"';\";\n\t\t\tResultSet rs = statement.executeQuery(query);\n\t\t\trs.next();\n\n\t\t\tLesson lesson = new Lesson();\n\t\t\tlesson.setId(id);\n\t\t\tlesson.setName(rs.getString(\"name\"));\n\t\t\tlesson.setDescription(rs.getString(\"description\"));\n\t\t\tlesson.setVideo(rs.getString(\"video\"));\n\t\t\tconnection.close();\n\t\t\tstatement.close();\n\t\t\treturn lesson;\n\n\t\t} catch (SQLException throwables) {\n\t\t\tthrowables.printStackTrace();\n\t\t\tLesson lesson = new Lesson();\n\t\t\treturn lesson;\n\n//\t\treturn this.lessons.get(id);\n//\t}finally {\n////\t\t\treturn lessons\n//\t\t}\n\n\t\t}\n}}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/nsu_group/ui/InMemoryLessonRespository.java b/src/main/java/nsu_group/ui/InMemoryLessonRespository.java
+--- a/src/main/java/nsu_group/ui/InMemoryLessonRespository.java	(revision 0c7bf33c1d569e94501fdc419a9396a30fd33680)
++++ b/src/main/java/nsu_group/ui/InMemoryLessonRespository.java	(date 1638980051652)
+@@ -28,7 +28,7 @@
+  */
+ public class InMemoryLessonRespository implements LessonRepository {
+ 
+-	private final static String url = "jdbc:mysql://127.0.0.1:3306/onlineschool";
++	private final static String url = "jdbc:mysql://localhost:8889/onlineschool";
+ 	private final static String user = "root";
+ 
+ //	private static AtomicLong counter = new AtomicLong();
+@@ -39,7 +39,7 @@
+ 	public Iterable<Lesson> findAll() {
+ 
+ 		try {
+-			Connection connection = DriverManager.getConnection(url, user, "12124576");
++			Connection connection = DriverManager.getConnection(url, user, "root");
+ 			Statement statement = connection.createStatement();
+ 
+ 			ResultSet resultSet = statement.executeQuery("SELECT * FROM Lessons");
+@@ -67,11 +67,11 @@
+ 	@Override
+ 	public Lesson save(Lesson lesson) {
+ 		try {
+-			Connection connection = DriverManager.getConnection(url, user, "12124576");
++			Connection connection = DriverManager.getConnection(url, user, "root");
+ 			Statement statement = connection.createStatement();
+ 
+ 			Formatter s = new Formatter();
+-			s.format("SELECT * FROM Lessons WHERE id= (select max(id) from Lessons);");
++			s.format("SELECT * FROM Lessons WHERE id = (select max(id) from Lessons);");
+ 			ResultSet resultSet = statement.executeQuery(String.valueOf(s));
+ 			resultSet.next();
+ 			int id = resultSet.getInt("id") + 1;
+@@ -93,7 +93,7 @@
+ 	@Override
+ 	public Lesson findLesson(int id) {
+ 		try {
+-			Connection connection = DriverManager.getConnection(url, user, "12124576");
++			Connection connection = DriverManager.getConnection(url, user, "root");
+ 			Statement statement = connection.createStatement();
+ 
+ 			String query = "SELECT name, description, video value FROM `lessons` WHERE id = '"+id+"';";
