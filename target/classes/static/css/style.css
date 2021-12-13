@@ -1,0 +1,91 @@
+body {
+    font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  background: whitesmoke;
+  background-size: 100%;}
+
+.logo {background: black;
+height: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.graficlogo {
+    max-width: 100%;
+    height: 150px;
+    padding: 5px;
+    box-sizing: border-box;
+
+}
+
+nav {
+    margin: auto;
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    text-align: center;
+}
+.topnav {
+    background-color: black;
+    font-size: 30px;
+    margin-top: 20px;
+}
+.topnav a{
+    color: white;
+    padding: 10px 20px;
+    font-size: 30px;
+}
+
+.topnav a:hover {
+    border-bottom: 2px solid white;
+}
+
+a {text-decoration: none}
+
+.main {background-image: url("img/imageedit_1_7813215538.png") ;
+height: 1240px;
+background-size: 100%;}
+
+.main-info {color: white;
+font-family: 'Raleway', sans-serif;
+    text-align: center;
+  font-size: 75px;
+  padding: 30px;
+padding-top: 150px}
+
+.main-size {font-size: 32px;
+margin-top: 100px}
+
+.tape {font-size: 60px;
+margin-top: 350px;
+color: whitesmoke}
+
+.info-tape {font-size: 30px;
+margin-top: 48px;
+min-width: 800px;
+text-align: center;
+padding: 30px 100px;
+word-spacing: 10px;
+line-height: 30px;
+color: whitesmoke}
+
+.site-footer {background: black;
+height: 150px;
+width: 100%;
+text-align: center;
+margin-top: 60px;
+text-decoration-color: black;
+font-size: 30px}
+
+.footer-word {
+    color: white;
+    font-size: 30px;
+}
+.footer-word a:hover{
+    border-bottom: 2px solid white;
+}
+table, th, td {
+  border: 1px solid black;
+}
+
