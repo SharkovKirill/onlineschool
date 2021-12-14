@@ -4,22 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b1517a3-0368-4595-8e7a-56aa17fda0ca" name="Changes" comment="+html login register">
-      <change afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nsu_group/ui/InMemoryLessonRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/InMemoryLessonRespository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nsu_group/ui/mvc/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/mvc/LessonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lessons/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lessons/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lessons/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lessons/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/reg.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/users/reg.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/nsu_group/ui/InMemoryLessonRespository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nsu_group/ui/InMemoryLessonRespository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/nsu_group/ui/mvc/LessonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nsu_group/ui/mvc/LessonController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-12-13.log" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-12-13.log" afterDir="false" />
+    <list default="true" id="8b1517a3-0368-4595-8e7a-56aa17fda0ca" name="Changes" comment="+borya's list+login, reg(html)">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/InSQLUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/mvc/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/img/adidas.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/layoutold.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/lessons/listold.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/nsu_group/ui/InSQLUserRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/nsu_group/ui/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/nsu_group/ui/UserRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/nsu_group/ui/mvc/UserController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/static/img/adidas.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/layoutold.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/lessons/listold.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/users/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/templates/users/reg.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-12-14.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +88,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -134,7 +137,7 @@
       <workItem from="1638972945775" duration="20935000" />
       <workItem from="1639023740744" duration="1964000" />
       <workItem from="1639403747818" duration="11142000" />
-      <workItem from="1639463185602" duration="5067000" />
+      <workItem from="1639463185602" duration="5422000" />
     </task>
     <task id="LOCAL-00001" summary="updated sql(+course)">
       <created>1638981459194</created>
@@ -171,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639405691721</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="+some fixes">
+      <created>1639470367775</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1639470367775</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,7 +205,9 @@
     <MESSAGE value="test" />
     <MESSAGE value="normal list" />
     <MESSAGE value="+html login register" />
-    <option name="LAST_COMMIT_MESSAGE" value="+html login register" />
+    <MESSAGE value="+some fixes" />
+    <MESSAGE value="+borya's list+login, reg(html)" />
+    <option name="LAST_COMMIT_MESSAGE" value="+borya's list+login, reg(html)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
