@@ -8,7 +8,15 @@ public class User {
     private String teacher;
     private String userlessons;
 
+    public User(int id, String email, String name, String password, String teacher, String userlessons){
+        this.id = 2323;
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.teacher = teacher;
+        this.userlessons = userlessons;
 
+    }
     public User() {
         this.id = 0;
         this.email = "";

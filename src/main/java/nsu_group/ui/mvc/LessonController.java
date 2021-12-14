@@ -31,23 +31,27 @@ import nsu_group.ui.UserRepository;
 import nsu_group.ui.Lesson;
 import nsu_group.ui.LessonRepository;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 @RequestMapping("/")
 public class LessonController {
 	private final LessonRepository lessonRepository;
-	private final UserRepository userRepository;
+//	private final UserRepository userRepository;
 
 	@Autowired
-	public LessonController(LessonRepository lessonRepository, UserRepository userRepository) {
+	public LessonController(LessonRepository lessonRepository) {
+//	public LessonController(LessonRepository lessonRepository, UserRepository userRepository) {
 		this.lessonRepository = lessonRepository;
-		this.userRepository = userRepository;
+//		this.userRepository = userRepository;
 	}
 
 
 	@RequestMapping
 	public ModelAndView list() {
+		//для препода
 		Iterable<Lesson> lessons = this.lessonRepository.findAll();
-//		return new ModelAndView("lessons/list", "lessons", lessons);
 		return new ModelAndView("lessons/list", "lessons", lessons);
 	}
 
@@ -62,7 +66,9 @@ public class LessonController {
 //	}
 
 	@RequestMapping(params = "form", method = RequestMethod.GET)
-	public String createForm(@ModelAttribute Lesson lesson) {
+	public String createForm(@ModelAttribute Lesson lesson, RedirectAttributes redir) {
+		User user = new User(1,"testemail@gmail.com", "ТипоИмя", "PASSWORDDD", "1", "1,2,3,4");
+		redir.addFlashAttribute("user", user);
 		return "lessons/form";
 	}
 
@@ -72,7 +78,12 @@ public class LessonController {
 		if (result.hasErrors()) {
 			return new ModelAndView("lessons/form", "formErrors", result.getAllErrors());
 		}
-		lesson = this.lessonRepository.save(lesson);
+		HashMap<String, Object> model = new HashMap<String, Object>();
+		User user = new User(1,"testemail@gmail.com", "Имя", "PASSWORDDD", "1", "1,2,3,4");
+		model.put("lesson", lesson);
+		model.put("user", user);
+//		lesson = this.lessonRepository.save(lesson);
+		lesson = this.lessonRepository.testSave(model);
 		Iterable<Lesson> lessons = this.lessonRepository.findAll();
 		return new ModelAndView("lessons/list", "lessons", lessons);
 //		redirect.addFlashAttribute("globalLesson", "Successfully created a new lesson");

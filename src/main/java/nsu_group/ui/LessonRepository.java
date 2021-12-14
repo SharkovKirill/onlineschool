@@ -13,12 +13,15 @@
 
 package nsu_group.ui;
 
-public interface LessonRepository {
+import java.util.HashMap;
 
+public interface LessonRepository {
+//	Map<String, Object> model = new HashMap<String, Object>();
 	Iterable<Lesson> findAll();
 
 	Lesson save(Lesson lesson);
 
 	Lesson findLesson(int id);
 
+	Lesson testSave(HashMap<String, Object> model);
 }

@@ -19,6 +19,7 @@ package nsu_group.ui;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Formatter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -74,15 +75,15 @@ public class InMemoryLessonRespository implements LessonRepository {
             Connection connection = DriverManager.getConnection(url, user, "root");
             Statement statement = connection.createStatement();
 
-            Formatter s = new Formatter();
-            s.format("SELECT * FROM Lessons WHERE id= (select max(id) from Lessons);");
-            ResultSet resultSet = statement.executeQuery(String.valueOf(s));
-            resultSet.next();
-            int id = resultSet.getInt("id") + 1;
+//            Formatter s = new Formatter();
+//            s.format("SELECT * FROM Lessons WHERE id= (select max(id) from Lessons);");
+//            ResultSet resultSet = statement.executeQuery(String.valueOf(s));
+//            resultSet.next();
+//            int id = resultSet.getInt("id") + 1;
 
             Formatter sq = new Formatter();
-            sq.format("INSERT INTO `onlineschool`.`lessons` (`id`, `name`, `description`, `video`, `course`) VALUES ('%s', '%s', '%s', '%s', '%s');",
-                    id, new String(lesson.getName().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getDescription().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getVideo().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8"));
+            sq.format("INSERT INTO `onlineschool`.`lessons` (`name`, `description`, `video`, `course`) VALUES ('%s', '%s', '%s', '%s');",
+                    new String(lesson.getName().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getDescription().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getVideo().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8"));
             statement.executeUpdate(String.valueOf(sq));
 
 
@@ -138,6 +139,55 @@ public class InMemoryLessonRespository implements LessonRepository {
 ////			return lessons
 //		}
 
+        }
+    }
+
+    @Override
+    public Lesson testSave(HashMap<String, Object> model) {
+        Lesson lesson = (Lesson) model.get("lesson");
+        try {
+            Connection connection = DriverManager.getConnection(url, user, "root");
+            Statement statement = connection.createStatement();
+            User user = (User) model.get("user");
+
+            Formatter s = new Formatter();
+            s.format("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA='onlineschool';");
+            ResultSet resultSet = statement.executeQuery(String.valueOf(s));
+
+            int checker = 0;
+            while (resultSet.next()) {
+                if(resultSet.getString("TABLE_NAME").equals(user.getEmail())){
+                    checker = 1;
+                }
+            }
+            if(checker==0){
+                Formatter newUserTable = new Formatter();
+                newUserTable.format("CREATE TABLE `onlineschool`.`%s` (`id` INT NOT NULL AUTO_INCREMENT, `name` VARCHAR(45) NULL, `description` VARCHAR(45) NULL,`video` VARCHAR(45) NULL,`course` VARCHAR(45) NULL, PRIMARY KEY (`id`));", user.getEmail());
+                statement.executeUpdate(String.valueOf(newUserTable));
+            }
+
+
+            Formatter sq = new Formatter();
+            sq.format("INSERT INTO `onlineschool`.`%s` (`name`, `description`, `video`, `course`) VALUES ('%s', '%s', '%s', '%s');",
+                    user.getEmail(), new String(lesson.getName().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getDescription().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getVideo().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8"));
+            statement.executeUpdate(String.valueOf(sq));
+//            ResultSet array = statement.executeQuery("SELECT DISTINCT course FROM Lessons;");
+            Formatter allLessons = new Formatter();
+            allLessons.format("INSERT INTO `onlineschool`.`lessons` (`name`, `description`, `video`, `course`) VALUES ('%s', '%s', '%s', '%s');",
+                    new String(lesson.getName().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getDescription().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getVideo().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8"));
+            statement.executeUpdate(String.valueOf(allLessons));
+
+
+            connection.close();
+            statement.close();
+            return lesson;
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+            return lesson;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return lesson;
         }
     }
 }
