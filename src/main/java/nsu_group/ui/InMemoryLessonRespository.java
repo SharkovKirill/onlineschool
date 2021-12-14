@@ -30,7 +30,6 @@ import java.sql.*;
  * @author Dave Syer
  */
 public class InMemoryLessonRespository implements LessonRepository {
-
     //	private final static String url = "jdbc:mysql://127.0.0.1:3306/onlineschool";
     private final static String url = "jdbc:mysql://localhost/onlineschool";
     private final static String user = "root";
@@ -95,11 +94,6 @@ public class InMemoryLessonRespository implements LessonRepository {
             }
             lesson.lis = li;
             System.out.println(li);
-
-
-
-
-
 
             connection.close();
             statement.close();

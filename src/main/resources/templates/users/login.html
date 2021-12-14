@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+  <meta charset="utf-8"></meta>
   <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 form {border: 3px solid #f1f1f1;}
@@ -73,16 +73,16 @@ span.psw {
 
 <form action="/action_page.php">
   <div class="imgcontainer">
-    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    <img src="resources/static/img/adidas.jpg" alt="Avatar" class="avatar"></img>
   </div>
 
   <div class="container">
     <span class="psw" style="margin-left: 300px">Войдите в систему / <a href="#">Регистрация</a></span>
     <label for="uname"><b>Email</b></label>
-    <input type="text" placeholder="Введите email" name="uname" required>
+    <input type="text" placeholder="Введите email" name="uname" required=""></input>
 
     <label for="psw"><b>Пароль</b></label>
-    <input type="password" placeholder="Введите пароль" name="psw" required>
+    <input type="password" placeholder="Введите пароль" name="psw" required=""></input>
 
     <button type="submit">Войти</button>
   </div>

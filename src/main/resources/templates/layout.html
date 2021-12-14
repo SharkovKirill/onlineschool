@@ -5,14 +5,13 @@
   <link rel="stylesheet"
         th:href="@{/css/bootstrap.min.css}"
         href="../../css/bootstrap.min.css"/>
-
 </head>
 <body>
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <div class="navbar-inner">
-      <a class="brand"
-         href="https://github.com/ultraq/thymeleaf-layout-dialect">
+      <a class="brand">
+<!--         href="https://github.com/ultraq/thymeleaf-layout-dialect">-->
         Онлайн школа
       </a>
       <ul class="nav">
@@ -26,12 +25,19 @@
       </ul>
       <ul class="nav">
         <li>
-          <a href="form.html" th:href="@{/(form)}" style="margin-left:820px" >+ Добавить урок</a>
+          <a href="form.html" th:href="@{/(form)}" style="margin-left:300px" >+ Добавить урок</a>
+
+        </li>
+      </ul>
+      <ul class="nav">
+        <li>
+          <a href="" th:href="@{/(form)}" style="margin-left:380px" >Фамилия Имя</a>
+
         </li>
       </ul>
     </div>
   </div>
-  <h1 layout:fragment="header"><br></br></h1>
+<!--  <h1 layout:fragment="header">Layout</h1>-->
   <div layout:fragment="content">
     Fake content
   </div>

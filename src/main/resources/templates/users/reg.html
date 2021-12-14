@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <meta charset="utf-8"></meta>
     <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 form {border: 3px solid #f1f1f1;}
@@ -72,23 +71,23 @@ span.psw {
 
 <h2>Регистрация</h2>
 
-<form action="/action_page.php">
+<form id="regForm" th:action="@{reg}" th:object="${user}" action="#" method="post">
     <div class="imgcontainer">
-        <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        <img src="img_avatar2.png" alt="Avatar" class="avatar"></img>
     </div>
 
     <div class="container">
-        <span class="psw" style="margin-left: 300px">Регистрация / <a href="#">Войдите в систему</a></span>
-        <label for="uname"><b>Email</b></label>
-        <input type="text" placeholder="Введите email" name="uname" required>
+        <span class="psw" style="margin-left: 300px">Регистрация / <a th:href="@{/login}" href="login.html">Войдите в систему</a></span>
+        <label for="email"><b>Email</b></label>
+        <input type="text" th:field="*{email}" placeholder="Введите email" name="uname" required=""></input>
 
         <label for="name"><b>Имя</b></label>
-        <input type="text" placeholder="Введите имя" name="name" required>
+        <input type="text" th:field="*{name}" placeholder="Введите имя" name="name" required=""></input>
 
-        <label for="psw"><b>Пароль</b></label>
-        <input type="password" placeholder="Введите пароль" name="psw" required>
+        <label for="password"><b>Пароль</b></label>
+        <input type="password" th:field="*{password}" placeholder="Введите пароль" name="psw" required=""></input>
         <label>
-            <input type="checkbox" checked="checked" name="teacher"> Преподаватель
+            <input type="checkbox" th:field="*{teacher}" th:value="1" checked="checked" name="teacher"> Преподаватель </input>
         </label>
 
         <button type="submit">Регистрация</button>

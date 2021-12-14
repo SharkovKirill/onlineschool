@@ -23,8 +23,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import nsu_group.ui.User;
+import nsu_group.ui.UserRepository;
 import nsu_group.ui.Lesson;
 import nsu_group.ui.LessonRepository;
 
@@ -32,15 +35,19 @@ import nsu_group.ui.LessonRepository;
 @RequestMapping("/")
 public class LessonController {
 	private final LessonRepository lessonRepository;
+	private final UserRepository userRepository;
 
 	@Autowired
-	public LessonController(LessonRepository lessonRepository) {
+	public LessonController(LessonRepository lessonRepository, UserRepository userRepository) {
 		this.lessonRepository = lessonRepository;
+		this.userRepository = userRepository;
 	}
+
 
 	@RequestMapping
 	public ModelAndView list() {
 		Iterable<Lesson> lessons = this.lessonRepository.findAll();
+//		return new ModelAndView("lessons/list", "lessons", lessons);
 		return new ModelAndView("lessons/list", "lessons", lessons);
 	}
 
@@ -49,12 +56,17 @@ public class LessonController {
 		return new ModelAndView("lessons/view", "lesson", lesson);
 	}
 
+//	@RequestMapping(params = "login", method = RequestMethod.GET)
+//	public String login() {
+//		return "users/login";
+//	}
+
 	@RequestMapping(params = "form", method = RequestMethod.GET)
 	public String createForm(@ModelAttribute Lesson lesson) {
 		return "lessons/form";
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value="/form", method = RequestMethod.POST)
 	public ModelAndView create(@Valid Lesson lesson, BindingResult result,
 			RedirectAttributes redirect) {
 		if (result.hasErrors()) {
@@ -67,6 +79,8 @@ public class LessonController {
 //		redirect.addFlashAttribute("globalLesson", "Successfully created a new lesson");
 //		return new ModelAndView("redirect:/{lesson.id}", "lesson.id", lesson.getId());
 	}
+
+
 
 	@RequestMapping("foo")
 	public String foo() {
