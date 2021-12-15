@@ -38,6 +38,7 @@ import java.util.Map;
 @RequestMapping("/")
 public class LessonController {
 	private final LessonRepository lessonRepository;
+	private Lesson lesson;
 //	private final UserRepository userRepository;
 
 	@Autowired
@@ -93,6 +94,7 @@ public class LessonController {
 //		redirect.addFlashAttribute("globalLesson", "Successfully created a new lesson");
 //		return new ModelAndView("redirect:/{lesson.id}", "lesson.id", lesson.getId());
 	}
+
 
 
 
