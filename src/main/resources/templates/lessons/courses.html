@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet"/>
+    <title>Опа пиво</title>
+    <script>
+        function loadVideo() {
+            var link = document.getElementById("video").value;
+            var fin_link = link.replace("watch?v=", "embed/")
+            document.getElementById("video_player").src = fin_link;
+        }
+    </script>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+<!--    вот это нужно зациклить в вывод  СТАРТ-->
+    <div class="card mb-3 border-primary">
+        <div class="card-body">
+            <h5 class="card-title">Название курса</h5>
+            <p class="card-text">Имя преподавателя</p>
+            <a href="#" class="btn btn-primary">Смотреть курс</a>
+        </div>
+    </div>
+<!--    КОНЕЦ-->
+</div>
+</body>
+</html>
