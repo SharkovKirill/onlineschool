@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b1517a3-0368-4595-8e7a-56aa17fda0ca" name="Changes" comment="normal list">
+    <list default="true" id="8b1517a3-0368-4595-8e7a-56aa17fda0ca" name="Changes" comment="+borya's list+login, reg(html)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nsu_group/ui/InMemoryLessonRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/InMemoryLessonRespository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nsu_group/ui/LessonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/LessonRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nsu_group/ui/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nsu_group/ui/mvc/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/mvc/LessonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lessons/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lessons/form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lessons/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lessons/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/nsu_group/ui/InMemoryLessonRespository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nsu_group/ui/InMemoryLessonRespository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/nsu_group/ui/mvc/LessonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nsu_group/ui/mvc/LessonController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/lessons/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/lessons/list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-12-13.log" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2021-12-13.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +23,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -76,16 +75,25 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Мой диск\IdeaProjects\onlineschool\src\main\resources\templates\users" />
+      <recent name="G:\Мой диск\IdeaProjects\onlineschool\src\main\resources\templates\lessons" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="nsu_group.ui" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="SampleWebUiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -120,7 +128,9 @@
       <updated>1638972941508</updated>
       <workItem from="1638972945775" duration="20935000" />
       <workItem from="1639023740744" duration="1964000" />
-      <workItem from="1639403747818" duration="1282000" />
+      <workItem from="1639403747818" duration="11142000" />
+      <workItem from="1639463185602" duration="5486000" />
+      <workItem from="1639488314637" duration="7463000" />
     </task>
     <task id="LOCAL-00001" summary="updated sql(+course)">
       <created>1638981459194</created>
@@ -150,14 +160,28 @@
       <option name="project" value="LOCAL" />
       <updated>1638997699513</updated>
     </task>
-    <task id="LOCAL-00005" summary="fixed list">
-      <created>1639411905829</created>
+    <task id="LOCAL-00005" summary="+html login register">
+      <created>1639405691721</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1639411905829</updated>
+      <updated>1639405691721</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="+some fixes">
+      <created>1639470367775</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1639470367775</updated>
+    </task>
+    <task id="LOCAL-00007" summary="+borya's list+login, reg(html)">
+      <created>1639470639553</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1639470639553</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,8 +204,10 @@
     <MESSAGE value="charset utf-8" />
     <MESSAGE value="test" />
     <MESSAGE value="normal list" />
-    <MESSAGE value="fixed list" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed list" />
+    <MESSAGE value="+html login register" />
+    <MESSAGE value="+some fixes" />
+    <MESSAGE value="+borya's list+login, reg(html)" />
+    <option name="LAST_COMMIT_MESSAGE" value="+borya's list+login, reg(html)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
