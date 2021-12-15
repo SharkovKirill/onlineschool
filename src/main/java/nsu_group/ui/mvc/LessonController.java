@@ -43,6 +43,10 @@ public class LessonController {
 		Iterable<Lesson> lessons = this.lessonRepository.findAll();
 		return new ModelAndView("lessons/list", "lessons", lessons);
 	}
+	@RequestMapping(params = "courses", method = RequestMethod.GET)
+	public String courses(@ModelAttribute Lesson lesson) {
+		return "lessons/courses";
+	}
 
 	@RequestMapping("{id}")
 	public ModelAndView view(@PathVariable("id") Lesson lesson) {

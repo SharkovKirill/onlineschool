@@ -3,129 +3,41 @@
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorator="layout">
 <head>
-  <title>Список всех уроков</title>
-  <style type="text/css">
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .card{
-      display: inline-block;
-      margin: auto;
-    }
-  </style>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <title>Список всех уроков</title>
 
-  <script>
-    function loadVideo() {
-      var link = document.getElementById("video").value;
-      var fin_link = link.replace("watch?v=", "embed/")
-      document.getElementById("video_player").src = fin_link;
-    }
-  </script>
+    <script>
+        function loadVideo() {
+            var link = document.getElementById("video").value;
+            var fin_link = link.replace("watch?v=", "embed/")
+            document.getElementById("video_player").src = fin_link;
+        }
+    </script>
 
 </head>
 <body>
 <!--<h1 layout:fragment="header">Lessons : View all</h1>-->
 <!--<div layout:fragment="content" class="container-fluid">-->
-<div layout:fragment="content">
-<!--  <div class="pull-right">-->
-<!--    <a href="form.html" th:href="@{/(form)}">Create Lesson</a>-->
-<!--  </div>-->
-<!--  <table class="table table-bordered table-striped">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--      <td>ID</td>-->
-<!--      <td>Name</td>-->
-<!--      <td>Description</td>-->
-<!--      <td>Video</td>-->
-<!--      <td>Course</td>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <tr th:each="lesson : ${lessons}">-->
-<!--      <td th:text="${lesson.id}">1</td>-->
-<!--      <td>-->
-<!--        <a href="view.html"-->
-<!--           th:href="@{'/' + ${lesson.id}}"-->
-<!--           th:text="${lesson.name}">-->
-<!--          The summary-->
-<!--        </a>-->
-<!--      </td>-->
-
-<!--      <td>-->
-<!--        <a href="view.html"-->
-<!--           th:href="@{'/' + ${lesson.id}}"-->
-<!--           th:text="${lesson.description}">-->
-<!--          The summary-->
-<!--        </a>-->
-<!--      </td>-->
-
-
-<!--      <td>-->
-<!--        <a href="view.html"-->
-<!--           th:href="@{'/' + ${lesson.id}}"-->
-<!--           th:text="${lesson.video}">-->
-<!--          The summary-->
-<!--        </a>-->
-<!--      </td>-->
-
-<!--      <td>-->
-<!--        <a href="view.html"-->
-<!--           th:href="@{'/' + ${lesson.id}}"-->
-<!--           th:text="${lesson.course}">-->
-<!--          The summary-->
-<!--        </a>-->
-<!--      </td>-->
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--  </table>-->
-  <script>
-    var allLessons = "${lessons}";
-  </script>
-  <div class="card-group row" th:each="lesson : ${lessons}">
-
-    <div class="card">
-      <iframe id="video_player" th:src="${lesson.video}" width="560" height="315" title="YouTube video player" frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen="true">
-      </iframe>
-      <div class="card-body">
-        <h5 class="card-title" th:href="@{'/' + ${lesson.id}}" th:text="${lesson.name}">Card title</h5>
-        <p class="card-text"></p>
-        <p class="card-text"><small class="text-muted"></small></p>
-      </div>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+<div layout:fragment="content" class="container">
+    <div class="card-columns">
+        <div th:each="lesson : ${lessons}">
+            <div class="card">
+                <iframe th:src="${lesson.video}" width="392" height="220" class="card-img-top"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen="true">
+                </iframe>
+                <div class="card-body">
+                    <p class="card-text" th:href="@{'/' + ${lesson.id}}" th:text="${lesson.name}">Card title</p>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--    <div class="card">-->
-<!--      <iframe id="video_player" src="https://www.youtube.com/embed/T8FUIgi2Khw" width="560" height="315" title="YouTube video player" frameborder="0"-->
-<!--              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"-->
-<!--              allowfullscreen="true">-->
-<!--      </iframe>-->
-<!--      <div class="card-body">-->
-<!--        <h5 class="card-title">ОТДЕЛЬНАЯ</h5>-->
-<!--        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>-->
-<!--        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
-<!--      </div>-->
-<!--    </div>-->
-  </div>
 </div>
 </body>
 </html>

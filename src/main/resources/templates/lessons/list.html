@@ -10,17 +10,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <title>Список всех уроков</title>
-    <style type="text/css">
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            display: inline-block;
-            margin: auto;
-        }
-    </style>
 
     <script>
         function loadVideo() {
@@ -35,18 +24,16 @@
 <!--<h1 layout:fragment="header">Lessons : View all</h1>-->
 <!--<div layout:fragment="content" class="container-fluid">-->
 <div layout:fragment="content" class="container">
-    <div class="row" th:each="lesson : ${lessons}">
-        <div class="col">
+    <div class="card-columns">
+        <div th:each="lesson : ${lessons}">
             <div class="card">
-                <div class="card-img-top">
-                    <iframe id="video_player" class="card-img-top" th:src="${lesson.video}" width="180" height="280" title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen="true">
-                    </iframe>
-                </div>
+                <iframe th:src="${lesson.video}" width="392" height="220" class="card-img-top"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen="true">
+                </iframe>
                 <div class="card-body">
-                    <h5 class="card-title" th:href="@{'/' + ${lesson.id}}" th:text="${lesson.name}">Card title</h5>
+                    <p class="card-text" th:href="@{'/' + ${lesson.id}}" th:text="${lesson.name}">Card title</p>
                 </div>
             </div>
         </div>
