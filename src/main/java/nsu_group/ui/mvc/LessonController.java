@@ -38,6 +38,7 @@ import static nsu_group.ui.mvc.UserController.user;
 @RequestMapping("/")
 public class LessonController {
 	private final LessonRepository lessonRepository;
+	private Lesson lesson;
 //	private final UserRepository userRepository;
 
 	@Autowired
@@ -59,6 +60,10 @@ public class LessonController {
 			Iterable<Lesson> lessons = this.lessonRepository.findAll();
 			return new ModelAndView("lessons/list", "lessons", lessons); //для препода
 		}
+	}
+	@RequestMapping(params = "courses", method = RequestMethod.GET)
+	public String courses(@ModelAttribute Lesson lesson) {
+		return "lessons/courses";
 	}
 
 	@RequestMapping("{id}")
@@ -98,6 +103,7 @@ public class LessonController {
 		Iterable<Lesson> lessons = this.lessonRepository.findAll();
 		return new ModelAndView("lessons/list", "lessons", lessons);
 	}
+
 
 
 
