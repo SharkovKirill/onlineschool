@@ -16,7 +16,9 @@ import java.util.concurrent.ConcurrentMap;
 @Component
 public class InSQLUserRepository implements UserRepository{
     private final static String url = "jdbc:mysql://localhost/onlineschool";
+//    private final static String url = "jdbc:mysql://127.0.0.1:3306/onlineschool";
     private final static String bduser = "root";
+    private final static String bdpassword = "root";
 
     private final ArrayList<User> users = new ArrayList<User>();
 
@@ -28,7 +30,7 @@ public class InSQLUserRepository implements UserRepository{
     @Override
     public User save(User user) {
         try {
-            Connection connection = DriverManager.getConnection(url, bduser, "root");
+            Connection connection = DriverManager.getConnection(url, bduser, bdpassword);
             Statement statement = connection.createStatement();
             Formatter sq = new Formatter();
             sq.format("INSERT INTO `onlineschool`.`users` (`email`, `name`, `password`, `teacher`, `userlessons`) VALUES ('%s', '%s', '%s', '%s', '%s');",
@@ -48,7 +50,7 @@ public class InSQLUserRepository implements UserRepository{
     @Override
     public Boolean check(User user) {
         try {
-            Connection connection = DriverManager.getConnection(url, bduser, "root");
+            Connection connection = DriverManager.getConnection(url, bduser, bdpassword);
             Statement statement = connection.createStatement();
             Statement statementSecond = connection.createStatement();
 
@@ -78,7 +80,7 @@ public class InSQLUserRepository implements UserRepository{
     @Override
     public User findUser(User user) {
         try {
-            Connection connection = DriverManager.getConnection(url, bduser, "root");
+            Connection connection = DriverManager.getConnection(url, bduser, bdpassword);
             Statement statement = connection.createStatement();
             Statement statementSecond = connection.createStatement();
 

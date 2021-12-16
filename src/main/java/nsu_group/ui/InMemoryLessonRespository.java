@@ -31,9 +31,10 @@ import java.sql.*;
  * @author Dave Syer
  */
 public class InMemoryLessonRespository implements LessonRepository {
-    //	private final static String url = "jdbc:mysql://127.0.0.1:3306/onlineschool";
+//    private final static String url = "jdbc:mysql://127.0.0.1:3306/onlineschool";
     private final static String url = "jdbc:mysql://localhost/onlineschool";
     private final static String user = "root";
+    private final static String password = "root";
 
 //	private static AtomicLong counter = new AtomicLong();
 
@@ -43,7 +44,7 @@ public class InMemoryLessonRespository implements LessonRepository {
     public Iterable<Lesson> findAll() {
 
         try {
-            Connection connection = DriverManager.getConnection(url, user, "root");
+            Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
 
             ResultSet resultSet = statement.executeQuery("SELECT * FROM Lessons;");
@@ -70,7 +71,7 @@ public class InMemoryLessonRespository implements LessonRepository {
     @Override
     public ArrayList<CardListNotTeacher> groupingByTeacher(){
         try {
-            Connection connection = DriverManager.getConnection(url, user, "root");
+            Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
             Statement statementSecond = connection.createStatement();
 //            ResultSet sqlEmails = statement.executeQuery("SELECT DISTINCT email FROM Users WHERE teacher=1;");
@@ -125,7 +126,7 @@ public class InMemoryLessonRespository implements LessonRepository {
     @Override
     public Lesson save(Lesson lesson) {
         try {
-            Connection connection = DriverManager.getConnection(url, user, "root");
+            Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
 
             Formatter sq = new Formatter();
@@ -149,7 +150,7 @@ public class InMemoryLessonRespository implements LessonRepository {
     @Override
     public Lesson findLesson(int id) {
         try {
-            Connection connection = DriverManager.getConnection(url, user, "root");
+            Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
 
             String query = "SELECT name, description, video, course value FROM `lessons` WHERE id = '" + id + "';";
@@ -179,11 +180,12 @@ public class InMemoryLessonRespository implements LessonRepository {
         }
     }
 
+
     @Override
     public Lesson testSave(HashMap<String, Object> model) {
         Lesson lesson = (Lesson) model.get("lesson");
         try {
-            Connection connection = DriverManager.getConnection(url, user, "root");
+            Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
             User user = (User) model.get("user");
 

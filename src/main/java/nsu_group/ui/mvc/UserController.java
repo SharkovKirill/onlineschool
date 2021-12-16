@@ -63,6 +63,10 @@ public class UserController {
     @RequestMapping(value="/reg", method = RequestMethod.POST)
     public ModelAndView createUser(@Valid User user, BindingResult result,
                                RedirectAttributes redirect) {
+
+        UserValidate userValidator = new UserValidate();
+        userValidator.validate(user, result);
+
         if (result.hasErrors()) {
             return new ModelAndView("users/reg", "formErrors", result.getAllErrors());
         }
