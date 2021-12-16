@@ -7,7 +7,7 @@ public interface UserRepository {
 
     User save(User user);
 
-    User check(User user);
+    Boolean check(User user);
 
-    User findUser(int id);
+    User findUser(User user);
 }

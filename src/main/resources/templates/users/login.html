@@ -71,18 +71,25 @@ span.psw {
 
 <h2>Войдите в систему</h2>
 
-<form action="/action_page.php">
+<form th:action="@{login}" th:object="${user}" action="#" method="post">
+  <div th:if="${#fields.hasErrors('*')}"
+       class="alert alert-error">
+    <p th:each="error : ${#fields.errors('*')}"
+       th:text="${error}">
+      Validation error
+    </p>
+  </div>
   <div class="imgcontainer">
     <img src="resources/static/img/adidas.jpg" alt="Avatar" class="avatar"></img>
   </div>
 
   <div class="container">
-    <span class="psw" style="margin-left: 300px">Войдите в систему / <a href="#">Регистрация</a></span>
-    <label for="uname"><b>Email</b></label>
-    <input type="text" placeholder="Введите email" name="uname" required=""></input>
+    <span class="psw" style="margin-left: 300px">Войдите в систему / <a th:href="@{'/user/?reg'}" href="reg.html">Регистрация</a></span>
+    <label for="email"><b>Email</b></label>
+    <input type="text" th:field="*{email}" placeholder="Введите email" name="uname" required=""></input>
 
-    <label for="psw"><b>Пароль</b></label>
-    <input type="password" placeholder="Введите пароль" name="psw" required=""></input>
+    <label for="password"><b>Пароль</b></label>
+    <input type="password" th:field="*{password}" placeholder="Введите пароль" name="psw" required=""></input>
 
     <button type="submit">Войти</button>
   </div>

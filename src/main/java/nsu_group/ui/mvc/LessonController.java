@@ -15,8 +15,10 @@ package nsu_group.ui.mvc;
 
 import javax.validation.Valid;
 
+import nsu_group.ui.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,13 +28,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import nsu_group.ui.User;
-import nsu_group.ui.UserRepository;
-import nsu_group.ui.Lesson;
-import nsu_group.ui.LessonRepository;
-
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
+import static nsu_group.ui.mvc.UserController.user;
 
 @Controller
 @RequestMapping("/")
@@ -50,9 +50,15 @@ public class LessonController {
 
 	@RequestMapping
 	public ModelAndView list() {
-		//для препода
-		Iterable<Lesson> lessons = this.lessonRepository.findAll();
-		return new ModelAndView("lessons/list", "lessons", lessons);
+		System.out.println(user.getTeacher());
+		if(user.getTeacher().equals("0")){
+		ArrayList<CardListNotTeacher> arrayCards = this.lessonRepository.groupingByTeacher();
+		return new ModelAndView("lessons/coursesnew", "cards", arrayCards);
+		}
+		else{
+			Iterable<Lesson> lessons = this.lessonRepository.findAll();
+			return new ModelAndView("lessons/list", "lessons", lessons); //для препода
+		}
 	}
 
 	@RequestMapping("{id}")
@@ -65,29 +71,32 @@ public class LessonController {
 //		return "users/login";
 //	}
 
+//	@RequestMapping(params = "form", method = RequestMethod.GET)
+//	public String createForm(@ModelAttribute Lesson lesson, RedirectAttributes redir) {
+//		User user = new User(1,"testemail@gmail.com", "ТипоИмя", "PASSWORDDD", "1", "1,2,3,4");
+//		redir.addFlashAttribute("user", user);
+//		return "lessons/form";
+//	}
 	@RequestMapping(params = "form", method = RequestMethod.GET)
-	public String createForm(@ModelAttribute Lesson lesson, RedirectAttributes redir) {
-		User user = new User(1,"testemail@gmail.com", "ТипоИмя", "PASSWORDDD", "1", "1,2,3,4");
-		redir.addFlashAttribute("user", user);
+	public String createForm(Model model, RedirectAttributes redirectAttributes) {
+		Lesson lesson = new Lesson();
+		model.addAttribute("user", user);
+		model.addAttribute("lesson", lesson);
+		redirectAttributes.addFlashAttribute("model", model);
 		return "lessons/form";
 	}
-
 	@RequestMapping(value="/form", method = RequestMethod.POST)
 	public ModelAndView create(@Valid Lesson lesson, BindingResult result,
-			RedirectAttributes redirect) {
+			RedirectAttributes redirectAttributes) {
 		if (result.hasErrors()) {
 			return new ModelAndView("lessons/form", "formErrors", result.getAllErrors());
 		}
 		HashMap<String, Object> model = new HashMap<String, Object>();
-		User user = new User(1,"testemail@gmail.com", "Имя", "PASSWORDDD", "1", "1,2,3,4");
 		model.put("lesson", lesson);
 		model.put("user", user);
-//		lesson = this.lessonRepository.save(lesson);
 		lesson = this.lessonRepository.testSave(model);
 		Iterable<Lesson> lessons = this.lessonRepository.findAll();
 		return new ModelAndView("lessons/list", "lessons", lessons);
-//		redirect.addFlashAttribute("globalLesson", "Successfully created a new lesson");
-//		return new ModelAndView("redirect:/{lesson.id}", "lesson.id", lesson.getId());
 	}
 
 

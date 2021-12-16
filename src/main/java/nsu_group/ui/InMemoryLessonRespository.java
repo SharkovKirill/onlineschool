@@ -67,7 +67,60 @@ public class InMemoryLessonRespository implements LessonRepository {
         }
 //		return this.lessons.values();
     }
+    @Override
+    public ArrayList<CardListNotTeacher> groupingByTeacher(){
+        try {
+            Connection connection = DriverManager.getConnection(url, user, "root");
+            Statement statement = connection.createStatement();
+            Statement statementSecond = connection.createStatement();
+//            ResultSet sqlEmails = statement.executeQuery("SELECT DISTINCT email FROM Users WHERE teacher=1;");
+            ResultSet sqlEmails = statement.executeQuery("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA='onlineschool';");
+            ArrayList<String> emailArray = new ArrayList<String>();
+            while(sqlEmails.next()){
+                String ma = sqlEmails.getString("TABLE_NAME");
+                if(ma.equals("users")){
+                    continue;
+                }else if(ma.equals("lessons")){
+                    continue;
+                }else{
+                    emailArray.add(ma);
+                }
+            }
+            System.out.println(emailArray);
 
+            ArrayList<CardListNotTeacher> arrayCards = new ArrayList<CardListNotTeacher>();
+
+            for(String email : emailArray){
+                Formatter gettingNameByEmail = new Formatter();
+                gettingNameByEmail.format("SELECT name FROM Users WHERE email='%s';", email);
+                ResultSet resultForName = statement.executeQuery(String.valueOf(gettingNameByEmail));
+                resultForName.next();
+                String teacherName = resultForName.getString("name");
+
+                Formatter s = new Formatter();
+                s.format("SELECT DISTINCT course FROM `%s`;", email);
+                ResultSet resultSet = statement.executeQuery(String.valueOf(s));
+                while(resultSet.next()){
+                    String course = resultSet.getString("course");
+                    System.out.println(course);
+                    Formatter q = new Formatter();
+                    q.format("SELECT count(*) FROM `%s` WHERE course='%s';", email, course);
+                    ResultSet resultQ = statementSecond.executeQuery(String.valueOf(q));
+                    String quantity = "";
+                    while (resultQ.next()){
+                        quantity = resultQ.getString("count(*)");
+                    }
+                    arrayCards.add(new CardListNotTeacher(course, teacherName, quantity));
+                }
+            }
+            connection.close();
+            statement.close();
+            return arrayCards;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
 
     @Override
     public Lesson save(Lesson lesson) {
@@ -75,26 +128,10 @@ public class InMemoryLessonRespository implements LessonRepository {
             Connection connection = DriverManager.getConnection(url, user, "root");
             Statement statement = connection.createStatement();
 
-//            Formatter s = new Formatter();
-//            s.format("SELECT * FROM Lessons WHERE id= (select max(id) from Lessons);");
-//            ResultSet resultSet = statement.executeQuery(String.valueOf(s));
-//            resultSet.next();
-//            int id = resultSet.getInt("id") + 1;
-
             Formatter sq = new Formatter();
             sq.format("INSERT INTO `onlineschool`.`lessons` (`name`, `description`, `video`, `course`) VALUES ('%s', '%s', '%s', '%s');",
                     new String(lesson.getName().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getDescription().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getVideo().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8"));
             statement.executeUpdate(String.valueOf(sq));
-
-
-
-            ResultSet array = statement.executeQuery("SELECT DISTINCT course FROM Lessons;");
-            ArrayList<String> li = new ArrayList<String>();
-            while(array.next()){
-                li.add(array.getString("course"));
-            }
-            lesson.lis = li;
-            System.out.println(li);
 
             connection.close();
             statement.close();
@@ -173,6 +210,8 @@ public class InMemoryLessonRespository implements LessonRepository {
             statement.executeUpdate(String.valueOf(sq));
 //            ResultSet array = statement.executeQuery("SELECT DISTINCT course FROM Lessons;");
             Formatter allLessons = new Formatter();
+            String line = new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8");
+            System.out.println(line);
             allLessons.format("INSERT INTO `onlineschool`.`lessons` (`name`, `description`, `video`, `course`) VALUES ('%s', '%s', '%s', '%s');",
                     new String(lesson.getName().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getDescription().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getVideo().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8"));
             statement.executeUpdate(String.valueOf(allLessons));

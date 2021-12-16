@@ -58,9 +58,9 @@
         <div class="row">
             <div class="col">
                 <label for="disabledSelect" class="form-label">КУРС</label>
-                <select id="disabledSelect" class="form-select">
-                    <option>Английский для школьников</option>
-                    <option>Java</option>
+                <select th:field="*{course}" id="disabledSelect" class="form-select">
+                    <option th:value="english">Английский для школьников</option>
+                    <option th:value="java">Java</option>
                 </select>
             </div>
             <div class="col">

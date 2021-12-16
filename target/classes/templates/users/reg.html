@@ -72,12 +72,19 @@ span.psw {
 <h2>Регистрация</h2>
 
 <form id="regForm" th:action="@{reg}" th:object="${user}" action="#" method="post">
+    <div th:if="${#fields.hasErrors('*')}"
+    class="alert alert-error">
+    <p th:each="error : ${#fields.errors('*')}"
+    th:text="${error}">
+    Validation error
+    </p>
+    </div>
     <div class="imgcontainer">
         <img src="img_avatar2.png" alt="Avatar" class="avatar"></img>
     </div>
 
     <div class="container">
-        <span class="psw" style="margin-left: 300px">Регистрация / <a th:href="@{/login}" href="login.html">Войдите в систему</a></span>
+        <span class="psw" style="margin-left: 300px">Регистрация / <a th:href="@{'/user/?login'}" href="login.html">Войдите в систему</a></span>
         <label for="email"><b>Email</b></label>
         <input type="text" th:field="*{email}" placeholder="Введите email" name="uname" required=""></input>
 
@@ -86,9 +93,17 @@ span.psw {
 
         <label for="password"><b>Пароль</b></label>
         <input type="password" th:field="*{password}" placeholder="Введите пароль" name="psw" required=""></input>
-        <label>
-            <input type="checkbox" th:field="*{teacher}" th:value="1" checked="checked" name="teacher"> Преподаватель </input>
-        </label>
+<!--        <label>-->
+<!--            <input type="checkbox" th:field="*{teacher}" th:value="${teacher}" checked="checked" name="teacher"> Преподаватель </input>-->
+<!--            <label th:for="${#ids.prev('teacher')}" th:text="${teacher}"></label>-->
+<!--        </label>-->
+
+        <label for="disabledSelect" class="form-label">Вы:</label>
+        <select th:field="*{teacher}" id="disabledSelect" class="form-select">
+            <option th:value="1">Учитель</option>
+            <option th:value="0">Ученик</option>
+        </select>
+
 
         <button type="submit">Регистрация</button>
 

@@ -1,5 +1,7 @@
 package nsu_group.ui;
 
+import javax.validation.constraints.NotNull;
+
 public class User {
     private int id;
     private String email;
@@ -10,10 +12,15 @@ public class User {
 
     public User(int id, String email, String name, String password, String teacher, String userlessons){
         this.id = 2323;
+
         this.email = email;
         this.name = name;
         this.password = password;
-        this.teacher = teacher;
+        if(teacher==null){
+            this.teacher = "0";
+        }else {
+            this.teacher = teacher;
+        }
         this.userlessons = userlessons;
 
     }

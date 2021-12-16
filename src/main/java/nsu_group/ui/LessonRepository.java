@@ -13,11 +13,14 @@
 
 package nsu_group.ui;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public interface LessonRepository {
 //	Map<String, Object> model = new HashMap<String, Object>();
 	Iterable<Lesson> findAll();
+
+	ArrayList<CardListNotTeacher> groupingByTeacher();
 
 	Lesson save(Lesson lesson);
 

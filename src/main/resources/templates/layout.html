@@ -31,9 +31,9 @@
       </ul>
       <ul class="nav">
         <li>
-          <a href="" style="margin-left:380px">Фамилия Имя</a>
-<!--          <a href="" th:href="@{/(form)}" th:object="${user}" th:text="${user.name}" style="margin-left:380px" >Фамилия Имя</a>-->
-        </li>>
+          <a href="" style="margin-left:380px" th:text="${user?.name}">Фамилия Имя</a>
+<!--          <a href="" style="margin-left:380px" >Фамилия Имя</a>-->
+        </li>
 <!--          <li>-->
 <!--              <div th:each="lesson : ${lessons}">-->
 
