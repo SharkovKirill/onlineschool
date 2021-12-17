@@ -1,9 +1,11 @@
 package nsu_group.ui;
 
+import nsu_group.ui.mvc.UserController;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 public class UserValidate implements Validator{
+    private final InSQLUserRepository insqluserepositore = new InSQLUserRepository();
     @Override
     public boolean supports(Class clazz) {
         return User.class.equals(clazz);
@@ -24,16 +26,15 @@ public class UserValidate implements Validator{
         if (!user.getName().matches("-?\\d+(\\.\\d+)?")){
             System.out.println("Ok");
         }else {
-            errors.rejectValue("name", "Unavailable name");
+            errors.rejectValue("name", "Неврный ввод");
         }
 
         if (user.getPassword().length()<4){
-
             errors.rejectValue("password", "Unavailable password");
         }
-//        if (check() == true) {
-//            errors.rejectValue("name", "User is created");
-//        }
+        if (insqluserepositore.check(user) == true) {
+            errors.rejectValue("name", "User is created");
+        }
 
 
 
