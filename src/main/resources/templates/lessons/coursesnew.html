@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorator="layout">
-
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -24,8 +23,18 @@
 </head>
 <body>
 <div layout:fragment="content" class="container">
-<!--    вот это нужно зациклить в вывод  СТАРТ-->
-    <div th:each="card : ${cards}" class="card mb-3 border-primary">
+<!--&lt;!&ndash;    вот это нужно зациклить в вывод  СТАРТ&ndash;&gt;-->
+<!--    <div th:each="card : ${cards}" class="card mb-3 border-primary">-->
+<!--        <div class="card-body">-->
+<!--            <h5 th:text="${card.coursename}" class="card-title">Название курса</h5>-->
+<!--            <p th:text="${card.courseteacher}" class="card-text">Имя преподавателя</p>-->
+<!--            <p th:text="${card.coursequantity}" class="card-text">115 уроков</p>-->
+<!--            <a href="#" class="btn btn-primary">Смотреть курс</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--&lt;!&ndash;    КОНЕЦ&ndash;&gt;-->
+    <div th:each="card : ${cards}">
+    <div class="card mb-3 border-primary">
         <div class="card-body">
             <h5 th:text="${card.coursename}" class="card-title">Название курса</h5>
             <p th:text="${card.courseteacher}" class="card-text">Имя преподавателя</p>
@@ -33,7 +42,7 @@
             <a href="#" class="btn btn-primary">Смотреть курс</a>
         </div>
     </div>
-<!--    КОНЕЦ-->
+</div>
 </div>
 </body>
 </html>

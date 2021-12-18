@@ -64,8 +64,8 @@ public class UserController {
     public ModelAndView createUser(@Valid User user, BindingResult result,
                                RedirectAttributes redirect) {
 
-        UserValidate userValidator = new UserValidate();
-        userValidator.validate(user, result);
+//        UserValidate userValidator = new UserValidate();
+//        userValidator.validate(user, result);
 
         if (result.hasErrors()) {
             return new ModelAndView("users/reg", "formErrors", result.getAllErrors());

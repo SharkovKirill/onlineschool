@@ -112,3 +112,4 @@ public class LessonController {
 		throw new RuntimeException("Expected exception in controller");
 	}
 }
+//добавить в бд курсы, разделить у препода по курсам

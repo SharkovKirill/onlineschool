@@ -26,7 +26,7 @@ public class UserValidate implements Validator{
         if (!user.getName().matches("-?\\d+(\\.\\d+)?")){
             System.out.println("Ok");
         }else {
-            errors.rejectValue("name", "Неврный ввод");
+            errors.rejectValue("name", "Unavailable name");
         }
 
         if (user.getPassword().length()<4){

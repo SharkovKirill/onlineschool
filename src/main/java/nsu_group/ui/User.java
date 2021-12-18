@@ -1,8 +1,10 @@
 package nsu_group.ui;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 public class User {
+//    @Pattern()
     private int id;
     private String email;
     private String name;
