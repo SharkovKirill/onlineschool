@@ -39,6 +39,32 @@ public class InMemoryLessonRespository implements LessonRepository {
 //	private static AtomicLong counter = new AtomicLong();
 
     private final ConcurrentMap<Integer, Lesson> lessons = new ConcurrentHashMap<Integer, Lesson>();
+    @Override
+    public ArrayList<Lesson> speccourse(String teacherName, String courseName) {
+        try {
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            Statement statementSecond = connection.createStatement();
+            Formatter sql = new Formatter();
+            sql.format("SELECT * FROM `%s` WHERE course = '%s';", teacherName, courseName);
+            ResultSet sqlLessons = statement.executeQuery(String.valueOf(sql));
+            ArrayList<Lesson> lessonsArrays = new ArrayList<Lesson>();
+            while (sqlLessons.next()) {
+                int id = sqlLessons.getInt("id");
+                Lesson lesson = new Lesson();
+                lesson.setId(id);
+                lesson.setName(sqlLessons.getString("name"));
+                lesson.setDescription(sqlLessons.getString("description"));
+                lesson.setVideo(sqlLessons.getString("video"));
+                lesson.setCourse(sqlLessons.getString("course"));
+                lessonsArrays.add(lesson);
+            }
+            return lessonsArrays;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return null;
+    }
 
     @Override
     public Iterable<Lesson> findAll() {
@@ -48,7 +74,6 @@ public class InMemoryLessonRespository implements LessonRepository {
             Statement statement = connection.createStatement();
 
             ResultSet resultSet = statement.executeQuery("SELECT * FROM Lessons;");
-//			resultSet.next();
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 Lesson lesson = new Lesson();
@@ -66,8 +91,8 @@ public class InMemoryLessonRespository implements LessonRepository {
             throwables.printStackTrace();
             return this.lessons.values();
         }
-//		return this.lessons.values();
     }
+
     @Override
     public ArrayList<CardListNotTeacher> groupingByTeacher(){
         try {
@@ -171,12 +196,6 @@ public class InMemoryLessonRespository implements LessonRepository {
             throwables.printStackTrace();
             Lesson lesson = new Lesson();
             return lesson;
-
-//		return this.lessons.get(id);
-//	}finally {
-////			return lessons
-//		}
-
         }
     }
 
@@ -210,14 +229,12 @@ public class InMemoryLessonRespository implements LessonRepository {
             sq.format("INSERT INTO `onlineschool`.`%s` (`name`, `description`, `video`, `course`) VALUES ('%s', '%s', '%s', '%s');",
                     user.getEmail(), new String(lesson.getName().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getDescription().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getVideo().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8"));
             statement.executeUpdate(String.valueOf(sq));
-//            ResultSet array = statement.executeQuery("SELECT DISTINCT course FROM Lessons;");
             Formatter allLessons = new Formatter();
             String line = new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8");
             System.out.println(line);
             allLessons.format("INSERT INTO `onlineschool`.`lessons` (`name`, `description`, `video`, `course`) VALUES ('%s', '%s', '%s', '%s');",
                     new String(lesson.getName().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getDescription().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getVideo().getBytes("ISO-8859-1"), "UTF-8"), new String(lesson.getCourse().getBytes("ISO-8859-1"), "UTF-8"));
             statement.executeUpdate(String.valueOf(allLessons));
-
 
             connection.close();
             statement.close();

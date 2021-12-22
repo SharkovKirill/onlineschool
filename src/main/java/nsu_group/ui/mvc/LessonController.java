@@ -48,6 +48,31 @@ public class LessonController {
 //		this.userRepository = userRepository;
 	}
 
+	@RequestMapping(value="/course")
+	public String speccoursedef(Model model, RedirectAttributes redirectAttributes) {
+//	public ModelAndView speccoursedef(Model model, RedirectAttributes redirectAttributes) {
+		User courseteacher = new User(9879, "ke", "ljksn","lkf","1", "2");
+		System.out.println(user.getTeacher());
+		String teacherName = "testemail@gmail.com";
+		String courseName = "java";
+		ArrayList<Lesson> lessons = this.lessonRepository.speccourse(teacherName, courseName);
+		HashMap<String, Object> model1 = new HashMap<String, Object>();
+		model1.put("lessons", lessons);
+		model1.put("courseteacher", courseteacher);
+
+		model.addAttribute("courseteacher", courseteacher);
+		model.addAttribute("lessons", lessons);
+		redirectAttributes.addFlashAttribute("model", model);
+//		return new ModelAndView("lessons/speccourse", "lessons", lessons);
+		return "lessons/speccourse";
+	}
+//переделать чтоб выводилимь только добавленные учеником курсы
+	@RequestMapping(value="/mycourses")
+	public ModelAndView mycourses() {
+		ArrayList<CardListNotTeacher> arrayCards = this.lessonRepository.groupingByTeacher();
+		return new ModelAndView("lessons/coursesnew", "cards", arrayCards);
+	}
+
 
 	@RequestMapping
 	public ModelAndView list() {
@@ -104,12 +129,11 @@ public class LessonController {
 		return new ModelAndView("lessons/list", "lessons", lessons);
 	}
 
-
-
-
 	@RequestMapping("foo")
 	public String foo() {
 		throw new RuntimeException("Expected exception in controller");
 	}
+
+
 }
 //добавить в бд курсы, разделить у препода по курсам

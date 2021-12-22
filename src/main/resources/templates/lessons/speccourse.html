@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
       layout:decorator="layoutborya">
+<!--      layout:decorator="layoutborya">-->
+
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -9,8 +11,10 @@
     <meta name="author" content=""/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-    <title>Список всех уроков</title>
 
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet"/>
+    <title>Я люблю водку и бар Элтон</title>
     <script>
         function loadVideo() {
             var link = document.getElementById("video").value;
@@ -18,12 +22,28 @@
             document.getElementById("video_player").src = fin_link;
         }
     </script>
-
 </head>
 <body>
-<!--<h1 layout:fragment="header">Lessons : View all</h1>-->
-<!--<div layout:fragment="content" class="container-fluid">-->
 <div layout:fragment="content" class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1>Название курса</h1>
+            <h4 th:text="${courseteacher?.name}">Имя этого в залупу дарного преподавателя</h4>
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+        <div class="col">
+        </div>
+        <div class="col col-lg-2">
+            <input type="submit" value="ЗАПИСАТЬСЯ НА КУРС" class="btn btn-info"/>
+        </div>
+    </div>
     <div class="card-columns">
         <div th:each="lesson : ${lessons}">
             <div class="card">

@@ -24,14 +24,20 @@
         <a class="nav-item nav-link active" th:href="@{/}" href="lessons.html">Все уроки</a>
       </li>
       <li class="nav-item">
-        <a class="nav-item nav-link" th:href="@{/(courses)}" href="courses.html">Курсы</a>
+        <a class="nav-item nav-link" th:href="@{/mycourses}" href="courses.html">Мои курсы</a>
       </li>
     </ul>
+
+    <span class="navbar-item" th:switch="${user?.teacher}">
+      <a th:case="'1'" class="nav-item nav-link my-2 my-lg-0" href="form.html" th:href="@{/(form)}">+ добавить урок</a>
+      <a th:case="'0'" class="nav-item nav-link my-2 my-lg-0" href="form.html" th:href="@{/(form)}"></a>
+    </span>
     <span class="navbar-item">
       <a class="nav-item nav-link my-2 my-lg-0" href="reg.html" th:href="@{/user/(reg)}">Регистрация</a>
     </span>
+
     <span class="navbar-item">
-      <a class="nav-item nav-link my-2 my-lg-0" href="form.html" th:href="@{/(form)}">+ добавить урок</a>
+      <a class="nav-item nav-link my-2 my-lg-0" th:text="${user?.name}">Фамилия Имя</a>
     </span>
   </div>
 </nav>

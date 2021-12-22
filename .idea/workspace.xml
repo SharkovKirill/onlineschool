@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b1517a3-0368-4595-8e7a-56aa17fda0ca" name="Changes" comment="Update validation">
+    <list default="true" id="8b1517a3-0368-4595-8e7a-56aa17fda0ca" name="Changes" comment="3 iteration">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/lessons/speccourse.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nsu_group/ui/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nsu_group/ui/UserValidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/UserValidate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nsu_group/ui/InMemoryLessonRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/InMemoryLessonRespository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nsu_group/ui/LessonRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/LessonRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nsu_group/ui/mvc/LessonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/mvc/LessonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nsu_group/ui/mvc/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nsu_group/ui/mvc/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layoutborya.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layoutborya.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lessons/courses.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lessons/courses.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lessons/coursesnew.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lessons/coursesnew.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/nsu_group/ui/mvc/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nsu_group/ui/mvc/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lessons/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lessons/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lessons/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lessons/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/lessons/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/lessons/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nsu_group/ui/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nsu_group/ui/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nsu_group/ui/mvc/LessonController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nsu_group/ui/mvc/LessonController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
@@ -75,6 +82,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -135,6 +143,9 @@
       <workItem from="1639555617205" duration="4549000" />
       <workItem from="1639560690349" duration="2457000" />
       <workItem from="1639637180155" duration="14135000" />
+      <workItem from="1639809670997" duration="731000" />
+      <workItem from="1640148780697" duration="1797000" />
+      <workItem from="1640158214780" duration="5132000" />
     </task>
     <task id="LOCAL-00001" summary="updated sql(+course)">
       <created>1638981459194</created>
@@ -199,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639731716159</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="3 iteration">
+      <created>1639809802373</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1639809802373</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +245,8 @@
     <MESSAGE value="+borya's list+login, reg(html)" />
     <MESSAGE value="new table for new teacher" />
     <MESSAGE value="Update validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update validation" />
+    <MESSAGE value="3 iteration" />
+    <option name="LAST_COMMIT_MESSAGE" value="3 iteration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

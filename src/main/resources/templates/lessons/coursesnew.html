@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
-      layout:decorator="layout">
+      layout:decorator="layoutborya">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
@@ -38,8 +38,9 @@
         <div class="card-body">
             <h5 th:text="${card.coursename}" class="card-title">Название курса</h5>
             <p th:text="${card.courseteacher}" class="card-text">Имя преподавателя</p>
-            <p th:text="${card.coursequantity}" class="card-text">115 уроков</p>
-            <a href="#" class="btn btn-primary">Смотреть курс</a>
+            <p class="card-text">Урока(ов):</p>
+            <p th:text="${card.coursequantity}" class="card-text"></p>
+            <a class="btn btn-primary" th:href="@{/course}" href="speccourse.html">Смотреть курс</a>
         </div>
     </div>
 </div>
